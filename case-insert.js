@@ -136,10 +136,9 @@
       <div class="rp-cases__inner">
         <div class="rp-cases__head">
           <p class="rp-cases__label">${copy.label}</p>
-        </div>
-        <div class="rp-cases__carousel" data-case-carousel>
-          <div class="rp-cases__controls" aria-label="${copy.label}">
+          <div class="rp-cases__controls" aria-label="${copy.label} navigation">
             <button class="rp-cases__arrow" type="button" data-case-prev aria-label="${copy.prev}">‹</button>
+            <span class="rp-cases__count" data-case-count aria-live="polite">01 / ${String(cases.length).padStart(2, "0")}</span>
             <div class="rp-cases__dots">
               ${cases
                 .map(
@@ -150,6 +149,8 @@
             </div>
             <button class="rp-cases__arrow" type="button" data-case-next aria-label="${copy.next}">›</button>
           </div>
+        </div>
+        <div class="rp-cases__carousel" data-case-carousel role="region" aria-label="${copy.label}" tabindex="0">
           <div class="rp-cases__viewport">
             <div class="rp-cases__track">
               ${cases.map(renderSlide).join("")}
@@ -162,6 +163,9 @@
     clients.insertAdjacentElement("afterend", section);
     const slides = [...section.querySelectorAll("[data-case-slide]")];
     const dots = [...section.querySelectorAll("[data-case-dot]")];
+    const count = section.querySelector("[data-case-count]");
+    const carousel = section.querySelector("[data-case-carousel]");
+    const viewport = section.querySelector(".rp-cases__viewport");
     const setActive = (nextIndex) => {
       const activeIndex = ((nextIndex % slides.length) + slides.length) % slides.length;
       slides.forEach((slide, index) => {
@@ -173,6 +177,7 @@
         dot.classList.toggle("is-active", index === activeIndex);
         dot.setAttribute("aria-current", index === activeIndex ? "true" : "false");
       });
+      count.textContent = `${String(activeIndex + 1).padStart(2, "0")} / ${String(slides.length).padStart(2, "0")}`;
       section.dataset.activeCase = String(activeIndex);
     };
     section.querySelector("[data-case-prev]").addEventListener("click", () => {
@@ -182,6 +187,56 @@
       setActive(Number(section.dataset.activeCase || 0) + 1);
     });
     dots.forEach((dot, index) => dot.addEventListener("click", () => setActive(index)));
+    carousel.addEventListener("keydown", (event) => {
+      if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+      event.preventDefault();
+      setActive(Number(section.dataset.activeCase || 0) + (event.key === "ArrowRight" ? 1 : -1));
+    });
+    const startSwipe = (clientX, clientY) => {
+      startX = clientX;
+      startY = clientY;
+      didSwipe = false;
+    };
+    const finishSwipe = (clientX, clientY) => {
+      const deltaX = clientX - startX;
+      const deltaY = clientY - startY;
+      if (Math.abs(deltaX) < 46 || Math.abs(deltaX) < Math.abs(deltaY)) return;
+      const now = Date.now();
+      if (now - lastSwipeAt < 320) return;
+      lastSwipeAt = now;
+      didSwipe = true;
+      setActive(Number(section.dataset.activeCase || 0) + (deltaX < 0 ? 1 : -1));
+    };
+    let startX = 0;
+    let startY = 0;
+    let didSwipe = false;
+    let lastSwipeAt = 0;
+    viewport.addEventListener("pointerdown", (event) => {
+      startSwipe(event.clientX, event.clientY);
+    });
+    viewport.addEventListener("pointerup", (event) => {
+      finishSwipe(event.clientX, event.clientY);
+    });
+    viewport.addEventListener("mousedown", (event) => startSwipe(event.clientX, event.clientY));
+    viewport.addEventListener("mouseup", (event) => finishSwipe(event.clientX, event.clientY));
+    viewport.addEventListener("touchstart", (event) => {
+      const touch = event.touches[0];
+      startSwipe(touch.clientX, touch.clientY);
+    }, { passive: true });
+    viewport.addEventListener("touchend", (event) => {
+      const touch = event.changedTouches[0];
+      finishSwipe(touch.clientX, touch.clientY);
+    }, { passive: true });
+    viewport.addEventListener(
+      "click",
+      (event) => {
+        if (!didSwipe) return;
+        event.preventDefault();
+        event.stopPropagation();
+        didSwipe = false;
+      },
+      true,
+    );
     section.dataset.activeCase = "0";
     return true;
   }
