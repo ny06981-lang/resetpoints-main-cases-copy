@@ -11,11 +11,7 @@
 }
 
 .rp-cases__head {
-  display: grid;
-  grid-template-columns: minmax(0, 0.88fr) minmax(260px, 0.62fr);
-  gap: 28px;
-  align-items: end;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 
 .rp-cases__label,
@@ -30,26 +26,8 @@
 }
 
 .rp-cases__label {
-  margin: 0 0 10px;
+  margin: 0;
   opacity: 0.58;
-}
-
-.rp-cases h2 {
-  margin: 0;
-  max-width: 760px;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(32px, 4.7vw, 58px);
-  font-weight: 500;
-  letter-spacing: 0;
-  line-height: 1;
-}
-
-.rp-cases__copy {
-  margin: 0;
-  color: rgba(23, 18, 15, 0.68);
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(18px, 1.7vw, 22px);
-  line-height: 1.24;
 }
 
 .rp-cases__carousel {
@@ -260,13 +238,11 @@
     padding: 40px 14px;
   }
 
-  .rp-cases__head,
   .rp-case-slide {
     grid-template-columns: 1fr;
   }
 
   .rp-cases__head {
-    gap: 12px;
     margin-bottom: 16px;
   }
 
@@ -311,14 +287,6 @@
 }
 
 @media (max-width: 520px) {
-  .rp-cases h2 {
-    font-size: 30px;
-  }
-
-  .rp-cases__copy {
-    font-size: 17px;
-  }
-
   .rp-case-slide__meta {
     gap: 6px;
     font-size: 9px;

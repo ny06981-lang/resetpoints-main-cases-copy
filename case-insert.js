@@ -9,9 +9,7 @@
 
   const copy = isRu
     ? {
-        label: "Кейсы",
-        title: "Опыт, который собирается под задачу команды",
-        intro: "Реальные форматы Resetpoints: от камерных leadership offsite до больших выездов-наград.",
+        label: "Примеры корпоративных эвентов",
         prev: "Предыдущий кейс",
         next: "Следующий кейс",
         link: "Посмотреть кейс",
@@ -20,9 +18,7 @@
         formatLabel: "Формат",
       }
     : {
-        label: "Case studies",
-        title: "Experiences designed around the team context",
-        intro: "Real Resetpoints formats: from intimate leadership offsites to large reward retreats.",
+        label: "Corporate event examples",
         prev: "Previous case",
         next: "Next case",
         link: "View case",
@@ -139,11 +135,7 @@
     section.innerHTML = `
       <div class="rp-cases__inner">
         <div class="rp-cases__head">
-          <div>
-            <p class="rp-cases__label">${copy.label}</p>
-            <h2>${copy.title}</h2>
-          </div>
-          <p class="rp-cases__copy">${copy.intro}</p>
+          <p class="rp-cases__label">${copy.label}</p>
         </div>
         <div class="rp-cases__carousel" data-case-carousel>
           <div class="rp-cases__controls" aria-label="${copy.label}">
