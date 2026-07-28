@@ -10,36 +10,122 @@
   const copy = isRu
     ? {
         label: "Кейсы",
-        title: "Как это выглядит в реальных командах",
-        intro:
-          "Короткие истории о задачах, формате и эффекте. Без лишней героики: что собрали, зачем и что почувствовала команда.",
-        featuredTitle: "Оффсайт для управленческой команды крупного банка",
-        featuredText:
-          "50 человек, летний загородный формат, мягкая официальная часть, командная игра, BBQ, музыка и свободное время без перегруженной повестки.",
-        result: "Эффект: единение и ощущение, что встретились близкие люди.",
+        title: "Опыт, который собирается под задачу команды",
+        intro: "Реальные форматы Resetpoints: от камерных leadership offsite до больших выездов-наград.",
+        prev: "Предыдущий кейс",
+        next: "Следующий кейс",
         link: "Посмотреть кейс",
-        soon: "Развернутый кейс готовится",
-        case2: "Командный выезд для product-команды",
-        case2Text: "Грузия, смена контекста, живая коммуникация и сильное общее воспоминание.",
-        case3: "Выезд-награда для команды роста",
-        case3Text: "Празднование этапа, восстановление энергии и настрой на следующий цикл.",
+        soon: "Скоро",
+        goalsLabel: "Цели",
+        formatLabel: "Формат",
       }
     : {
         label: "Case studies",
-        title: "What this looks like for real teams",
-        intro:
-          "Short stories about the client context, format, and effect. No noise: what we built, why it mattered, and what changed for the team.",
-        featuredTitle: "Leadership offsite for a large bank",
-        featuredText:
-          "50 participants, a summer countryside format, a light official part, team games, BBQ, music, and unforced time together.",
-        result: "Effect: unity and the feeling that people met as humans again.",
+        title: "Experiences designed around the team context",
+        intro: "Real Resetpoints formats: from intimate leadership offsites to large reward retreats.",
+        prev: "Previous case",
+        next: "Next case",
         link: "View case",
-        soon: "Full case coming soon",
-        case2: "Team retreat for a product team",
-        case2Text: "Georgia, context shift, live communication, and a shared team memory.",
-        case3: "Reward retreat for a growth team",
-        case3Text: "Celebrating a milestone, restoring energy, and preparing for the next cycle.",
+        soon: "Soon",
+        goalsLabel: "Goals",
+        formatLabel: "Format",
       };
+
+  const cases = isRu
+    ? [
+        {
+          title: "Оффсайт для управленческой команды крупного банка",
+          image: "case-bank-offsite-01-welcome.jpg",
+          alt: "Welcome-зона оффсайта для крупного банка",
+          href: caseUrl,
+          badges: ["Крупный банк", "Reward offsite", "50 участников", "Лето 2026"],
+          goals:
+            "Празднование пройденного этапа, восстановление энергии и вдохновение команды на следующий цикл.",
+          format:
+            "Летний загородный формат, мягкая официальная часть, азартные олимпийские игры, торжественный BBQ-ужин, живая музыка, покатушки на квадроциклах и заплыв на сапах.",
+          result: "Эффект: команда выдохнула, сблизилась и уехала с ощущением сильного общего момента.",
+          status: "ready",
+        },
+        {
+          title: "Кейс 2",
+          image: "case-bank-offsite-03-outdoor-circle.jpg",
+          alt: "Участники на открытой площадке во время командного выезда",
+          badges: ["Team retreat", "До 40 участников", "В работе"],
+          goals: "Описание будет добавлено после согласования деталей и фото.",
+          format: "Заглушка для следующего корпоративного кейса.",
+          status: "soon",
+        },
+        {
+          title: "Кейс 3",
+          image: "case-bank-offsite-05-evening.jpg",
+          alt: "Вечерняя часть корпоративного выезда",
+          badges: ["Reward offsite", "60+ участников", "В работе"],
+          goals: "Описание будет добавлено после согласования деталей и фото.",
+          format: "Заглушка для следующего корпоративного кейса.",
+          status: "soon",
+        },
+      ]
+    : [
+        {
+          title: "Leadership offsite for a large bank",
+          image: "case-bank-offsite-01-welcome.jpg",
+          alt: "Welcome area at a corporate offsite for a large bank",
+          href: caseUrl,
+          badges: ["Large bank", "Reward offsite", "50 participants", "Summer 2026"],
+          goals: "Celebrate a completed stage, restore energy, and inspire the team for the next cycle.",
+          format:
+            "A summer countryside format with a light official part, energetic team games, a ceremonial BBQ dinner, live music, quad biking, and SUP.",
+          result: "Effect: the team exhaled, reconnected, and left with a strong shared moment.",
+          status: "ready",
+        },
+        {
+          title: "Case 2",
+          image: "case-bank-offsite-03-outdoor-circle.jpg",
+          alt: "Participants outdoors during a team retreat",
+          badges: ["Team retreat", "Up to 40 participants", "In progress"],
+          goals: "Description will be added after details and photos are approved.",
+          format: "Placeholder for the next corporate case.",
+          status: "soon",
+        },
+        {
+          title: "Case 3",
+          image: "case-bank-offsite-05-evening.jpg",
+          alt: "Evening part of a corporate offsite",
+          badges: ["Reward offsite", "60+ participants", "In progress"],
+          goals: "Description will be added after details and photos are approved.",
+          format: "Placeholder for the next corporate case.",
+          status: "soon",
+        },
+      ];
+
+  const renderBadges = (items) => items.map((item) => `<span>${item}</span>`).join("");
+  const renderSlide = (item, index) => `
+    <article class="rp-case-slide${index === 0 ? " is-active" : ""}" data-case-slide="${index}" aria-hidden="${index === 0 ? "false" : "true"}">
+      <a class="rp-case-slide__image" ${item.href ? `href="${item.href}"` : ""} aria-label="${item.href ? `${copy.link}: ${item.title}` : item.title}">
+        <img src="${asset(item.image)}" alt="${item.alt}" loading="lazy" />
+      </a>
+      <div class="rp-case-slide__body">
+        <div class="rp-case-slide__meta">${renderBadges(item.badges)}</div>
+        <h3>${item.title}</h3>
+        <dl class="rp-case-slide__details">
+          <div>
+            <dt>${copy.goalsLabel}</dt>
+            <dd>${item.goals}</dd>
+          </div>
+          <div>
+            <dt>${copy.formatLabel}</dt>
+            <dd>${item.format}</dd>
+          </div>
+        </dl>
+        ${item.result ? `<p class="rp-case-slide__result">${item.result}</p>` : ""}
+        ${
+          item.href
+            ? `<a class="rp-case-slide__link" href="${item.href}">${copy.link} →</a>`
+            : `<span class="rp-case-slide__pending">${copy.soon}</span>`
+        }
+      </div>
+    </article>
+  `;
 
   function render() {
     if (document.querySelector(".rp-cases")) return true;
@@ -59,46 +145,52 @@
           </div>
           <p class="rp-cases__copy">${copy.intro}</p>
         </div>
-        <div class="rp-cases__grid">
-          <article class="rp-case rp-case--featured">
-            <a class="rp-case__image" href="${caseUrl}" aria-label="${copy.link}: ${copy.featuredTitle}">
-              <img src="${asset("case-bank-offsite-01-welcome.jpg")}" alt="Welcome-зона оффсайта для крупного банка" loading="lazy" />
-            </a>
-            <div class="rp-case__body">
-              <div class="rp-case__meta">
-                <span>${isRu ? "Крупный банк" : "Large bank"}</span>
-                <span>${isRu ? "50 участников" : "50 participants"}</span>
-                <span>${isRu ? "Лето 2026" : "Summer 2026"}</span>
-              </div>
-              <h3>${copy.featuredTitle}</h3>
-              <p>${copy.featuredText}</p>
-              <p>${copy.result}</p>
-              <a class="rp-case__link" href="${caseUrl}">${copy.link} →</a>
+        <div class="rp-cases__carousel" data-case-carousel>
+          <div class="rp-cases__controls" aria-label="${copy.label}">
+            <button class="rp-cases__arrow" type="button" data-case-prev aria-label="${copy.prev}">‹</button>
+            <div class="rp-cases__dots">
+              ${cases
+                .map(
+                  (_, index) =>
+                    `<button class="rp-cases__dot${index === 0 ? " is-active" : ""}" type="button" data-case-dot="${index}" aria-label="${copy.label} ${index + 1}"></button>`,
+                )
+                .join("")}
             </div>
-          </article>
-          <div class="rp-cases__side">
-            <article class="rp-case">
-              <div class="rp-case__body">
-                <span class="rp-case__tag">Team retreat</span>
-                <h3>${copy.case2}</h3>
-                <p>${copy.case2Text}</p>
-                <span class="rp-case__pending">${copy.soon}</span>
-              </div>
-            </article>
-            <article class="rp-case">
-              <div class="rp-case__body">
-                <span class="rp-case__tag">Reward offsite</span>
-                <h3>${copy.case3}</h3>
-                <p>${copy.case3Text}</p>
-                <span class="rp-case__pending">${copy.soon}</span>
-              </div>
-            </article>
+            <button class="rp-cases__arrow" type="button" data-case-next aria-label="${copy.next}">›</button>
+          </div>
+          <div class="rp-cases__viewport">
+            <div class="rp-cases__track">
+              ${cases.map(renderSlide).join("")}
+            </div>
           </div>
         </div>
       </div>
     `;
 
     clients.insertAdjacentElement("afterend", section);
+    const slides = [...section.querySelectorAll("[data-case-slide]")];
+    const dots = [...section.querySelectorAll("[data-case-dot]")];
+    const setActive = (nextIndex) => {
+      const activeIndex = ((nextIndex % slides.length) + slides.length) % slides.length;
+      slides.forEach((slide, index) => {
+        const isActive = index === activeIndex;
+        slide.classList.toggle("is-active", isActive);
+        slide.setAttribute("aria-hidden", isActive ? "false" : "true");
+      });
+      dots.forEach((dot, index) => {
+        dot.classList.toggle("is-active", index === activeIndex);
+        dot.setAttribute("aria-current", index === activeIndex ? "true" : "false");
+      });
+      section.dataset.activeCase = String(activeIndex);
+    };
+    section.querySelector("[data-case-prev]").addEventListener("click", () => {
+      setActive(Number(section.dataset.activeCase || 0) - 1);
+    });
+    section.querySelector("[data-case-next]").addEventListener("click", () => {
+      setActive(Number(section.dataset.activeCase || 0) + 1);
+    });
+    dots.forEach((dot, index) => dot.addEventListener("click", () => setActive(index)));
+    section.dataset.activeCase = "0";
     return true;
   }
 
