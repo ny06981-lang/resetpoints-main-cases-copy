@@ -30,7 +30,7 @@
   const cases = isRu
     ? [
         {
-          title: "Оффсайт для управленческой команды крупного банка",
+          title: "Оффсайт для команды международного банка",
           image: "case-bank-offsite-01-welcome.jpg",
           alt: "Welcome-зона оффсайта для крупного банка",
           href: caseUrl,
@@ -39,7 +39,6 @@
             "Празднование пройденного этапа, восстановление энергии и вдохновение команды на следующий цикл.",
           format:
             "Летний загородный формат, мягкая официальная часть, азартные олимпийские игры, торжественный BBQ-ужин, живая музыка, покатушки на квадроциклах и заплыв на сапах.",
-          result: "Эффект: команда выдохнула, сблизилась и уехала с ощущением сильного общего момента.",
           status: "ready",
         },
         {
@@ -63,15 +62,14 @@
       ]
     : [
         {
-          title: "Leadership offsite for a large bank",
+          title: "Offsite for an international bank team",
           image: "case-bank-offsite-01-welcome.jpg",
-          alt: "Welcome area at a corporate offsite for a large bank",
+          alt: "Welcome area at a corporate offsite for an international bank",
           href: caseUrl,
           badges: ["Large bank", "Reward offsite", "50 participants", "Summer 2026"],
           goals: "Celebrate a completed stage, restore energy, and inspire the team for the next cycle.",
           format:
             "A summer countryside format with a light official part, energetic team games, a ceremonial BBQ dinner, live music, quad biking, and SUP.",
-          result: "Effect: the team exhaled, reconnected, and left with a strong shared moment.",
           status: "ready",
         },
         {
