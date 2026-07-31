@@ -23,4 +23,18 @@
     <lastmod>2026-05-07</lastmod>
   </url>
 
+  <!-- Case Studies -->
+  <url>
+    <loc>https://resetpoints.com/ru/cases/fintech-strategy-retreat-georgia/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://resetpoints.com/ru/cases/fintech-strategy-retreat-georgia/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://resetpoints.com/cases/fintech-strategy-retreat-georgia/" />
+  </url>
+  <url>
+    <loc>https://resetpoints.com/cases/fintech-strategy-retreat-georgia/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://resetpoints.com/ru/cases/fintech-strategy-retreat-georgia/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://resetpoints.com/cases/fintech-strategy-retreat-georgia/" />
+  </url>
+
 </urlset>

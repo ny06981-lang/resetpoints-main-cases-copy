@@ -4,7 +4,8 @@
     ? "/resetpoints-main-cases-copy/"
     : "/";
   const root = repoPrefix.endsWith("/") ? repoPrefix : `${repoPrefix}/`;
-  const caseUrl = `${root}${isRu ? "ru/" : ""}cases/bank-offsite-summer-2026/`;
+  const bankCaseUrl = `${root}${isRu ? "ru/" : ""}cases/bank-offsite-summer-2026/`;
+  const fintechCaseUrl = `${root}${isRu ? "ru/" : ""}cases/fintech-strategy-retreat-georgia/`;
   const asset = (name) => `${root}case-assets/${name}`;
 
   const copy = isRu
@@ -33,12 +34,23 @@
           title: "Оффсайт для команды международного банка",
           image: "case-bank-offsite-01-welcome.jpg",
           alt: "Welcome-зона оффсайта для крупного банка",
-          href: caseUrl,
+          href: bankCaseUrl,
           badges: ["Крупный банк", "Reward offsite", "50 участников", "Лето 2026"],
           goals:
             "Празднование пройденного этапа, восстановление энергии и вдохновение команды на следующий цикл.",
           format:
             "Летний загородный формат, мягкая официальная часть, азартные олимпийские игры, торжественный BBQ-ужин, живая музыка, покатушки на квадроциклах и заплыв на сапах.",
+          status: "ready",
+        },
+        {
+          title: "Стратегический ретрит для топ-команды финтех-стартапа",
+          image: "case-fintech-georgia-01-kakheti.jpg",
+          alt: "Вид на Кахетию во время стратегического ретрита",
+          href: fintechCaseUrl,
+          badges: ["Финтех-стартап", "Strategy Retreat", "3 дня", "Грузия"],
+          goals: "Сформулировать видение следующего цикла, синхронизировать топ-команду и вернуть энергию для новых проектов.",
+          format:
+            "Кахетия, стратегическая сессия, созвоны с расширенной командой, ужины, костер, виноградники, кулинарный воркшоп и гала-ужин на винодельне.",
           status: "ready",
         },
         {
@@ -65,11 +77,22 @@
           title: "Offsite for an international bank team",
           image: "case-bank-offsite-01-welcome.jpg",
           alt: "Welcome area at a corporate offsite for an international bank",
-          href: caseUrl,
+          href: bankCaseUrl,
           badges: ["Large bank", "Reward offsite", "50 participants", "Summer 2026"],
           goals: "Celebrate a completed stage, restore energy, and inspire the team for the next cycle.",
           format:
             "A summer countryside format with a light official part, energetic team games, a ceremonial BBQ dinner, live music, quad biking, and SUP.",
+          status: "ready",
+        },
+        {
+          title: "Strategy retreat for a fintech startup leadership team",
+          image: "case-fintech-georgia-01-kakheti.jpg",
+          alt: "View of Kakheti during a strategy retreat in Georgia",
+          href: fintechCaseUrl,
+          badges: ["Fintech startup", "Strategy Retreat", "3 days", "Georgia"],
+          goals: "Shape the next-cycle vision, align the leadership team, and restore energy for new projects.",
+          format:
+            "Kakheti, facilitated strategy work, calls with the extended team, dinners, a campfire, vineyards, a culinary workshop, and a gala dinner at a winery.",
           status: "ready",
         },
         {
