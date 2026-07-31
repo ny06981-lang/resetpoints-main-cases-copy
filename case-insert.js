@@ -53,24 +53,6 @@
             "Кахетия, стратегическая сессия, созвоны с расширенной командой, ужины, костер, виноградники, кулинарный воркшоп и гала-ужин на винодельне.",
           status: "ready",
         },
-        {
-          title: "Кейс 2",
-          image: "case-bank-offsite-03-outdoor-circle.jpg",
-          alt: "Участники на открытой площадке во время командного выезда",
-          badges: ["Team retreat", "До 40 участников", "В работе"],
-          goals: "Описание будет добавлено после согласования деталей и фото.",
-          format: "Заглушка для следующего корпоративного кейса.",
-          status: "soon",
-        },
-        {
-          title: "Кейс 3",
-          image: "case-bank-offsite-05-evening.jpg",
-          alt: "Вечерняя часть корпоративного выезда",
-          badges: ["Reward offsite", "60+ участников", "В работе"],
-          goals: "Описание будет добавлено после согласования деталей и фото.",
-          format: "Заглушка для следующего корпоративного кейса.",
-          status: "soon",
-        },
       ]
     : [
         {
@@ -95,25 +77,29 @@
             "Kakheti, facilitated strategy work, calls with the extended team, dinners, a campfire, vineyards, a culinary workshop, and a gala dinner at a winery.",
           status: "ready",
         },
-        {
-          title: "Case 2",
-          image: "case-bank-offsite-03-outdoor-circle.jpg",
-          alt: "Participants outdoors during a team retreat",
-          badges: ["Team retreat", "Up to 40 participants", "In progress"],
-          goals: "Description will be added after details and photos are approved.",
-          format: "Placeholder for the next corporate case.",
-          status: "soon",
-        },
-        {
-          title: "Case 3",
-          image: "case-bank-offsite-05-evening.jpg",
-          alt: "Evening part of a corporate offsite",
-          badges: ["Reward offsite", "60+ participants", "In progress"],
-          goals: "Description will be added after details and photos are approved.",
-          format: "Placeholder for the next corporate case.",
-          status: "soon",
-        },
       ];
+
+  const countriesLabel = isRu ? "География выездов" : "Retreat geography";
+  const countries = [
+    { flag: "🇬🇪", name: "Georgia" },
+    { flag: "🇦🇲", name: "Armenia" },
+    { flag: "🇷🇸", name: "Serbia" },
+    { flag: "🇺🇿", name: "Uzbekistan" },
+    { flag: "🇲🇪", name: "Montenegro" },
+    { flag: "🇦🇪", name: "UAE, Dubai" },
+    { flag: "🇹🇷", name: "Turkey" },
+    { flag: "🇪🇬", name: "Egypt" },
+    { flag: "🇲🇦", name: "Morocco" },
+    { flag: "🇹🇳", name: "Tunisia" },
+    { flag: "🇮🇩", name: "Bali" },
+    { flag: "🇵🇹", name: "Portugal" },
+    { flag: "🇪🇸", name: "Spain" },
+    { flag: "🇳🇱", name: "Netherlands" },
+    { flag: "🇸🇮", name: "Slovenia" },
+    { flag: "🇦🇱", name: "Albania" },
+    { flag: "🇹🇭", name: "Thailand" },
+    { flag: "🇻🇳", name: "Vietnam" },
+  ];
 
   const renderBadges = (items) => items.map((item) => `<span>${item}</span>`).join("");
   const renderSlide = (item, index) => `
@@ -144,7 +130,19 @@
     </article>
   `;
 
-  function render() {
+  const renderCountryItems = () =>
+    [...countries, ...countries]
+      .map(
+        (item, index) => `
+          <span class="rp-country-item" aria-hidden="${index >= countries.length ? "true" : "false"}">
+            <span class="rp-country-item__flag">${item.flag}</span>
+            <span>${item.name}</span>
+          </span>
+        `,
+      )
+      .join("");
+
+  function renderCases() {
     if (document.querySelector(".rp-cases")) return true;
 
     const clients = document.querySelector("#clients");
@@ -260,6 +258,39 @@
     );
     section.dataset.activeCase = "0";
     return true;
+  }
+
+  function renderCountries() {
+    if (document.querySelector(".rp-countries")) return true;
+
+    const details = document.querySelector("#details");
+    if (!details) return false;
+
+    const section = document.createElement("section");
+    section.className = "rp-countries";
+    section.setAttribute("aria-label", countriesLabel);
+    section.innerHTML = `
+      <div class="rp-countries__head">
+        <h2>${countriesLabel}</h2>
+        <div></div>
+      </div>
+      <div class="rp-countries__marquee">
+        <div class="rp-countries__fade rp-countries__fade--left"></div>
+        <div class="rp-countries__fade rp-countries__fade--right"></div>
+        <div class="rp-countries__track">
+          ${renderCountryItems()}
+        </div>
+      </div>
+    `;
+
+    details.insertAdjacentElement("afterend", section);
+    return true;
+  }
+
+  function render() {
+    const casesReady = renderCases();
+    const countriesReady = renderCountries();
+    return casesReady && countriesReady;
   }
 
   if (render()) return;
