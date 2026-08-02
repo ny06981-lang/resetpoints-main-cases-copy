@@ -37,4 +37,30 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://resetpoints.com/cases/fintech-strategy-retreat-georgia/" />
   </url>
 
+  <!-- Facilitator profiles -->
+  <url>
+    <loc>https://resetpoints.com/ru/facilitators/dmitry-riman/</loc>
+    <lastmod>2026-08-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://resetpoints.com/ru/facilitators/dmitry-riman/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://resetpoints.com/facilitators/dmitry-riman/" />
+  </url>
+  <url>
+    <loc>https://resetpoints.com/ru/facilitators/irina-shashkina/</loc>
+    <lastmod>2026-08-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://resetpoints.com/ru/facilitators/irina-shashkina/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://resetpoints.com/facilitators/irina-shashkina/" />
+  </url>
+  <url>
+    <loc>https://resetpoints.com/ru/facilitators/elena-lensu/</loc>
+    <lastmod>2026-08-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://resetpoints.com/ru/facilitators/elena-lensu/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://resetpoints.com/facilitators/elena-lensu/" />
+  </url>
+  <url>
+    <loc>https://resetpoints.com/ru/facilitators/max-rodin/</loc>
+    <lastmod>2026-08-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://resetpoints.com/ru/facilitators/max-rodin/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://resetpoints.com/facilitators/max-rodin/" />
+  </url>
+
 </urlset>

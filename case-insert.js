@@ -101,6 +101,106 @@
     { flag: "🇻🇳", name: "Vietnam" },
   ];
 
+  const facilitatorCopy = isRu
+    ? {
+        label: "Ведущие и фасилитаторы",
+        title: "Люди, которые удерживают смысл и живой контакт",
+        intro: "Подбираем ведущего под задачу команды, уровень разговора и нужное состояние группы.",
+        profile: "Открыть профиль",
+      }
+    : {
+        label: "Facilitators and hosts",
+        title: "People who hold the meaning and the human connection",
+        intro: "We match the right facilitator to the team’s challenge, conversation, and desired energy.",
+        profile: "Open profile",
+      };
+
+  const facilitators = isRu
+    ? [
+        {
+          name: "Дмитрий Риман",
+          slug: "dmitry-riman",
+          role: "Организационный консультант · фасилитатор стратегических сессий",
+          description: "Помогает управленческим командам договориться о важном, увидеть общую картину и превратить разговор в следующий шаг.",
+          tags: ["Стратегические сессии", "Командные сессии", "Коучинг руководителей"],
+          stats: ["20 лет в бизнесе", "150+ сессий", "600+ часов коучинга"],
+          image: "dmitry-riman.jpg",
+          alt: "Дмитрий Риман, организационный консультант и фасилитатор",
+        },
+        {
+          name: "Ирина Шашкина",
+          slug: "irina-shashkina",
+          role: "Стратегический партнёр · архитектор логики бизнеса",
+          description: "Помогает собственникам и топ-командам принимать системные решения, когда прежняя логика бизнеса больше не работает.",
+          tags: ["Стратегические ретриты", "Системный взгляд", "Топ-команды"],
+          stats: ["20+ лет опыта", "Fortune 500", "Работа со сложностью"],
+          image: "https://shashkina.ru/photo.jpg",
+          alt: "Ирина Шашкина, стратегический партнёр и архитектор логики бизнеса",
+        },
+        {
+          name: "Елена Ленсу",
+          slug: "elena-lensu",
+          role: "Эксперт по человеческому функционированию в сложной рабочей среде",
+          description: "Помогает руководителям и командам сохранять ясность, зрелое взаимодействие и эффективность под нагрузкой.",
+          tags: ["Командные сессии", "Development Lab", "Сложные среды"],
+          stats: ["Гештальт-терапевт", "ex-HRD", "IT и продуктовые команды"],
+          image: "elena-lensu.png",
+          alt: "Елена Ленсу, эксперт по человеческому функционированию в сложной рабочей среде",
+        },
+        {
+          name: "Макс Родин",
+          slug: "max-rodin",
+          role: "Фасилитатор трансформации · основатель deep mind",
+          description: "Работает с состоянием, осознанностью и групповыми процессами, помогая командам действовать в сложном меняющемся мире.",
+          tags: ["Теория U", "Осознанность", "Трансформация команд"],
+          stats: ["Founder deep mind", "Групповые процессы", "B2B и B2C"],
+          image: "max-rodin.jpg",
+          alt: "Макс Родин, фасилитатор трансформации и основатель deep mind",
+        },
+      ]
+    : [
+        {
+          name: "Dmitry Riman",
+          slug: "dmitry-riman",
+          role: "Organizational consultant · strategy session facilitator",
+          description: "Helps leadership teams align on what matters, see the bigger picture, and turn a meaningful conversation into the next step.",
+          tags: ["Strategy sessions", "Team sessions", "Executive coaching"],
+          stats: ["20 years in business", "150+ sessions", "600+ coaching hours"],
+          image: "dmitry-riman.jpg",
+          alt: "Dmitry Riman, organizational consultant and facilitator",
+        },
+        {
+          name: "Irina Shashkina",
+          slug: "irina-shashkina",
+          role: "Strategic partner · business logic architect",
+          description: "Helps owners and leadership teams make systemic decisions when the old business logic no longer works.",
+          tags: ["Strategy retreats", "Systems thinking", "Leadership teams"],
+          stats: ["20+ years of experience", "Fortune 500", "Complexity work"],
+          image: "https://shashkina.ru/photo.jpg",
+          alt: "Irina Shashkina, strategic partner and business logic architect",
+        },
+        {
+          name: "Elena Lensu",
+          slug: "elena-lensu",
+          role: "Human functioning expert in complex work environments",
+          description: "Helps leaders and teams preserve clarity, mature interaction, and effectiveness under pressure.",
+          tags: ["Team sessions", "Development Lab", "Complex environments"],
+          stats: ["Gestalt therapist", "ex-HRD", "Product and IT teams"],
+          image: "elena-lensu.png",
+          alt: "Elena Lensu, human functioning expert in complex work environments",
+        },
+        {
+          name: "Max Rodin",
+          slug: "max-rodin",
+          role: "Transformation facilitator · founder of deep mind",
+          description: "Works with presence, awareness, and group processes to help teams act in a complex and changing world.",
+          tags: ["Theory U", "Awareness", "Team transformation"],
+          stats: ["Founder, deep mind", "Group processes", "B2B and B2C"],
+          image: "max-rodin.jpg",
+          alt: "Max Rodin, transformation facilitator and founder of deep mind",
+        },
+      ];
+
   const renderBadges = (items) => items.map((item) => `<span>${item}</span>`).join("");
   const renderSlide = (item, index) => `
     <article class="rp-case-slide${index === 0 ? " is-active" : ""}" data-case-slide="${index}" aria-hidden="${index === 0 ? "false" : "true"}">
@@ -287,10 +387,62 @@
     return true;
   }
 
+  function renderFacilitators() {
+    if (document.querySelector(".rp-facilitators")) return true;
+
+    const countriesSection = document.querySelector(".rp-countries");
+    if (!countriesSection) return false;
+
+    const section = document.createElement("section");
+    section.className = "rp-facilitators";
+    section.id = "facilitators";
+    section.setAttribute("aria-label", facilitatorCopy.label);
+    section.innerHTML = `
+      <div class="rp-facilitators__inner">
+        <div class="rp-facilitators__head">
+          <div>
+            <p class="rp-facilitators__label">${facilitatorCopy.label}</p>
+            <h2>${facilitatorCopy.title}</h2>
+          </div>
+          <p class="rp-facilitators__intro">${facilitatorCopy.intro}</p>
+        </div>
+        <div class="rp-facilitators__grid">
+          ${facilitators
+            .map((item, index) => {
+              const href = `${root}${isRu ? "ru/" : ""}facilitators/${item.slug}/`;
+              return `
+                <article class="rp-facilitator-card">
+                  <a class="rp-facilitator-card__photo" href="${href}" aria-label="${facilitatorCopy.profile}: ${item.name}">
+                    <img src="${root}facilitator-assets/${item.image}" alt="${item.alt}" loading="lazy" />
+                  </a>
+                  <div class="rp-facilitator-card__body">
+                    <div class="rp-facilitator-card__topline">
+                      <span class="rp-facilitator-card__index">${String(index + 1).padStart(2, "0")}</span>
+                      <div class="rp-facilitator-card__tags">${item.tags.map((tag) => `<span>${tag}</span>`).join("")}</div>
+                    </div>
+                    <h3>${item.name}</h3>
+                    <p class="rp-facilitator-card__role">${item.role}</p>
+                    <p class="rp-facilitator-card__description">${item.description}</p>
+                    <div class="rp-facilitator-card__stats">${item.stats.map((stat) => `<span>${stat}</span>`).join("")}</div>
+                    <a class="rp-facilitator-card__link" href="${href}">${facilitatorCopy.profile} →</a>
+                  </div>
+                </article>
+              `;
+            })
+            .join("")}
+        </div>
+      </div>
+    `;
+
+    countriesSection.insertAdjacentElement("afterend", section);
+    return true;
+  }
+
   function render() {
     const casesReady = renderCases();
     const countriesReady = renderCountries();
-    return casesReady && countriesReady;
+    const facilitatorsReady = renderFacilitators();
+    return casesReady && countriesReady && facilitatorsReady;
   }
 
   if (render()) return;

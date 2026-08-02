@@ -362,6 +362,188 @@
   }
 }
 
+.rp-facilitators {
+  background: #efe5de;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  color: #17120f;
+  padding: 58px 20px;
+  scroll-margin-top: 112px;
+}
+
+.rp-facilitators__inner {
+  max-width: 1152px;
+  margin: 0 auto;
+}
+
+.rp-facilitators__head {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(240px, 0.8fr);
+  align-items: end;
+  gap: 32px;
+  margin-bottom: 24px;
+}
+
+.rp-facilitators__label,
+.rp-facilitator-card__index,
+.rp-facilitator-card__tags,
+.rp-facilitator-card__stats,
+.rp-facilitator-card__link {
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.rp-facilitators__label {
+  margin: 0 0 10px;
+  opacity: 0.62;
+}
+
+.rp-facilitators__head h2 {
+  max-width: 680px;
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(32px, 4.5vw, 58px);
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 0.98;
+}
+
+.rp-facilitators__intro {
+  max-width: 360px;
+  margin: 0 0 3px auto;
+  color: rgba(23, 18, 15, 0.68);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.28;
+}
+
+.rp-facilitator-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: #f3dace;
+}
+
+.rp-facilitators__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.rp-facilitator-card__photo {
+  display: block;
+  height: 220px;
+  overflow: hidden;
+  background: #2f241e;
+}
+
+.rp-facilitator-card__photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  height: 220px;
+  object-fit: cover;
+  object-position: center 20%;
+  filter: saturate(0.92);
+  transition: transform 500ms ease;
+}
+
+.rp-facilitator-card__photo:hover img {
+  transform: scale(1.03);
+}
+
+.rp-facilitator-card__body {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 13px;
+  padding: 20px 20px 18px;
+}
+
+.rp-facilitator-card__topline {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.rp-facilitator-card__index {
+  color: rgba(23, 18, 15, 0.46);
+}
+
+.rp-facilitator-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 7px;
+}
+
+.rp-facilitator-card__tags span,
+.rp-facilitator-card__stats span {
+  border: 1px solid rgba(0, 0, 0, 0.13);
+  padding: 7px 8px;
+  background: rgba(255, 246, 231, 0.42);
+}
+
+.rp-facilitator-card h3 {
+  margin: 7px 0 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(28px, 3.1vw, 42px);
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 0.98;
+}
+
+.rp-facilitator-card__role {
+  max-width: 660px;
+  margin: 0;
+  color: rgba(23, 18, 15, 0.58);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  font-style: italic;
+  line-height: 1.26;
+}
+
+.rp-facilitator-card__description {
+  max-width: 650px;
+  margin: 2px 0 0;
+  color: rgba(23, 18, 15, 0.78);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.24;
+}
+
+.rp-facilitator-card__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: auto;
+  padding-top: 10px;
+}
+
+.rp-facilitator-card__link {
+  display: inline-flex;
+  width: fit-content;
+  margin-top: 3px;
+  background: #2f241e;
+  color: #f3dace;
+  padding: 13px 15px;
+  text-decoration: none;
+}
+
+.rp-facilitator-card__link:hover {
+  background: #000;
+}
+
+.rp-facilitator-card__link:focus-visible,
+.rp-facilitator-card__photo:focus-visible {
+  outline: 2px solid #17120f;
+  outline-offset: 3px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .rp-countries__track {
     animation: none;
@@ -432,6 +614,51 @@
 
   .rp-countries {
     padding: 34px 0;
+  }
+
+  .rp-facilitators {
+    padding: 40px 14px;
+  }
+
+  .rp-facilitators__head {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-bottom: 18px;
+  }
+
+  .rp-facilitators__intro {
+    max-width: 520px;
+    margin: 0;
+  }
+
+  .rp-facilitator-card {
+    grid-template-columns: 1fr;
+  }
+
+  .rp-facilitators__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rp-facilitator-card__photo,
+  .rp-facilitator-card__photo img {
+    min-height: 300px;
+    height: 300px;
+  }
+
+  .rp-facilitator-card__body {
+    gap: 11px;
+    padding: 19px 18px 18px;
+  }
+
+  .rp-facilitator-card h3 {
+    margin-top: 5px;
+    font-size: 36px;
+  }
+
+  .rp-facilitator-card__description {
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 15px;
+    line-height: 1.42;
   }
 
   .rp-countries__head {
