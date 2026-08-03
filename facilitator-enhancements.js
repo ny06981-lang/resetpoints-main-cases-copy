@@ -17,7 +17,7 @@
       clientsEn: ["Leroy Merlin", "X5 Retail Group", "Rosneft", "RusHydro", "Kempinski", "Polyana Group", "Nashe Zoloto", "Samara Region Government"],
       noteRu: "Более 150 стратегических и командных сессий в DreamTeam. В список включены организации, публично указанные на официальном сайте команды.",
       noteEn: "150+ strategy and team sessions through DreamTeam. The list reflects organizations named publicly by the team.",
-      socials: [["DreamTeam", "https://dream-team.pro/"], ["Telegram project", "https://t.me/brave_heart6"]]
+      socials: [["DreamTeam", "https://dream-team.pro/"], ["Telegram", "https://t.me/RimanDm"]]
     },
     irina: {
       clientsRu: ["Fortune 500", "Российские корпорации", "Технологические стартапы", "Трансформация бизнеса", "Новые направления", "Лидерские команды"],

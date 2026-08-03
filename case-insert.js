@@ -134,7 +134,7 @@
           description: "Помогает собственникам и топ-командам принимать системные решения, когда прежняя логика бизнеса больше не работает.",
           tags: ["Стратегические ретриты", "Системный взгляд", "Топ-команды"],
           stats: ["20+ лет опыта", "Fortune 500", "Работа со сложностью"],
-          image: "https://shashkina.ru/photo.jpg",
+          image: "irina-shashkina.jpg",
           alt: "Ирина Шашкина, стратегический партнёр и архитектор логики бизнеса",
         },
         {
@@ -144,7 +144,7 @@
           description: "Помогает руководителям и командам сохранять ясность, зрелое взаимодействие и эффективность под нагрузкой.",
           tags: ["Командные сессии", "Development Lab", "Сложные среды"],
           stats: ["Гештальт-терапевт", "ex-HRD", "IT и продуктовые команды"],
-          image: "elena-lensu.png",
+          image: "elena-lensu.jpg",
           alt: "Елена Ленсу, эксперт по человеческому функционированию в сложной рабочей среде",
         },
         {
@@ -176,7 +176,7 @@
           description: "Helps owners and leadership teams make systemic decisions when the old business logic no longer works.",
           tags: ["Strategy retreats", "Systems thinking", "Leadership teams"],
           stats: ["20+ years of experience", "Fortune 500", "Complexity work"],
-          image: "https://shashkina.ru/photo.jpg",
+          image: "irina-shashkina.jpg",
           alt: "Irina Shashkina, strategic partner and business logic architect",
         },
         {
@@ -186,7 +186,7 @@
           description: "Helps leaders and teams preserve clarity, mature interaction, and effectiveness under pressure.",
           tags: ["Team sessions", "Development Lab", "Complex environments"],
           stats: ["Gestalt therapist", "ex-HRD", "Product and IT teams"],
-          image: "elena-lensu.png",
+          image: "elena-lensu.jpg",
           alt: "Elena Lensu, human functioning expert in complex work environments",
         },
         {
