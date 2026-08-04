@@ -440,6 +440,7 @@
         <div class="rp-facilitators__pagination" data-facilitator-pagination aria-label="${isRu ? "Навигация по ведущим" : "Facilitator navigation"}">
           ${facilitators.map((item, index) => `<button type="button" class="rp-facilitators__dot${index === 0 ? " is-active" : ""}" data-facilitator-dot="${index}" aria-label="${isRu ? "Открыть профиль " : "Open profile "}${item.name}" aria-current="${index === 0 ? "true" : "false"}"></button>`).join("")}
         </div>
+        <span class="rp-facilitators__count" data-facilitator-count aria-live="polite">01 / ${String(facilitators.length).padStart(2, "0")}</span>
       </div>
     `;
 
@@ -448,6 +449,7 @@
     const viewport = section.querySelector("[data-facilitator-viewport]");
     const slides = Array.from(section.querySelectorAll("[data-facilitator-slide]"));
     const dots = Array.from(section.querySelectorAll("[data-facilitator-dot]"));
+    const count = section.querySelector("[data-facilitator-count]");
     const prev = section.querySelector("[data-facilitator-prev]");
     const next = section.querySelector("[data-facilitator-next]");
     const setActive = () => {
@@ -460,6 +462,7 @@
         dot.classList.toggle("is-active", index === active);
         dot.setAttribute("aria-current", index === active ? "true" : "false");
       });
+      count.textContent = `${String(active + 1).padStart(2, "0")} / ${String(slides.length).padStart(2, "0")}`;
     };
     const move = (direction) => viewport.scrollBy({ left: direction * viewport.clientWidth * 0.88, behavior: "smooth" });
     prev.addEventListener("click", () => move(-1));
