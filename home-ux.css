@@ -1,0 +1,47 @@
+/* Keep the visual symbols compact while giving every control a comfortable touch area. */
+#root button {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+#root button[aria-label="Открыть меню"] {
+  width: 44px !important;
+  height: 44px !important;
+  display: grid;
+  place-items: center;
+}
+
+#root button[aria-label="Русская версия"],
+#root button[aria-label="English version"] {
+  width: 44px !important;
+  height: 44px !important;
+}
+
+#root button[aria-label="Предыдущий кейс"],
+#root button[aria-label="Следующий кейс"],
+#root button[aria-label="Previous case"],
+#root button[aria-label="Next case"],
+#root button[aria-label="Предыдущий ведущий"],
+#root button[aria-label="Следующий ведущий"],
+#root button[aria-label="Previous facilitator"],
+#root button[aria-label="Next facilitator"] {
+  width: 44px !important;
+  height: 44px !important;
+  flex: 0 0 44px;
+}
+
+#root button[aria-label^="Примеры корпоративных эвентов"],
+#root button[aria-label^="Corporate event examples"],
+#root button[aria-label^="Открыть профиль"],
+#root button[aria-label^="Open profile"] {
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  min-height: 44px !important;
+}
+
+#root button[aria-label="Закрыть видео"],
+#root button[aria-label="Close video"] {
+  width: 44px !important;
+  height: 44px !important;
+}

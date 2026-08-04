@@ -1,0 +1,111 @@
+.rp-cookie-banner {
+  width: min(calc(100% - 24px), 520px) !important;
+  max-height: min(45vh, 320px);
+  overflow-y: auto;
+  padding: 16px !important;
+  padding-bottom: max(16px, env(safe-area-inset-bottom)) !important;
+}
+
+.rp-cookie-actions {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end !important;
+  gap: 8px 12px !important;
+}
+
+.rp-cookie-actions > div:first-child {
+  width: 100%;
+  flex: 1 0 100%;
+}
+
+.rp-cookie-actions button,
+.rp-cookie-save {
+  min-height: 44px;
+  cursor: pointer;
+}
+
+.rp-cookie-primary,
+.rp-cookie-secondary,
+.rp-cookie-save {
+  border: 0;
+  padding: 11px 15px;
+  font: inherit;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.rp-cookie-primary {
+  background: #d8b78f !important;
+  color: #17120f !important;
+}
+
+.rp-cookie-secondary {
+  background: transparent;
+  color: #f3dace;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.rp-cookie-primary:focus-visible,
+.rp-cookie-secondary:focus-visible,
+.rp-cookie-save:focus-visible,
+.rp-cookie-setting input:focus-visible {
+  outline: 2px solid #f3dace;
+  outline-offset: 3px;
+}
+
+.rp-cookie-settings {
+  display: grid;
+  gap: 10px;
+  margin: 0 0 14px;
+  border-top: 1px solid rgba(243, 218, 206, 0.25);
+  border-bottom: 1px solid rgba(243, 218, 206, 0.25);
+  padding: 14px 0;
+}
+
+.rp-cookie-setting {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  color: #f3dace;
+  font-size: 12px;
+}
+
+.rp-cookie-setting span {
+  display: grid;
+  gap: 3px;
+}
+
+.rp-cookie-setting small {
+  max-width: 360px;
+  opacity: 0.7;
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.rp-cookie-setting input {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 auto;
+  accent-color: #d8b78f;
+}
+
+@media (max-width: 640px) {
+  .rp-cookie-banner {
+    top: 76px !important;
+    bottom: auto !important;
+    max-height: 38vh;
+  }
+}
+
+.rp-cookie-save {
+  justify-self: start;
+  background: #f3dace;
+  color: #17120f;
+}
