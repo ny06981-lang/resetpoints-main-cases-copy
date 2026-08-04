@@ -160,6 +160,82 @@ a { color: inherit; }
 
 .dm-socials a { text-underline-offset: 4px; }
 
+.dm-hero-cta {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.7fr);
+  align-items: center;
+  gap: 48px;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 30px 28px;
+  border-top: 1px solid var(--dm-border);
+  border-bottom: 1px solid var(--dm-border);
+  background: var(--dm-card);
+}
+
+.dm-hero-cta h2 {
+  max-width: 680px;
+  margin: 8px 0 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(30px, 4vw, 52px);
+  font-weight: 400;
+  line-height: 0.98;
+}
+
+.dm-hero-cta__action {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 20px;
+}
+
+.dm-hero-cta__action p {
+  flex: 1 0 100%;
+  margin: 0;
+  color: var(--dm-muted);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 19px;
+  line-height: 1.2;
+}
+
+.dm-hero-cta__action span {
+  color: var(--dm-muted);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.dm-proofs {
+  background: var(--dm-soft);
+}
+
+.dm-proof-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.dm-proof {
+  min-height: 170px;
+  padding: 22px;
+  border: 1px solid var(--dm-border);
+  background: var(--dm-card);
+}
+
+.dm-proof .dm-eyebrow {
+  margin-bottom: 28px;
+}
+
+.dm-proof > p:last-child {
+  margin: 0;
+  color: var(--dm-muted);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 20px;
+  line-height: 1.24;
+}
+
 .dm-band {
   border-top: 1px solid var(--dm-border);
   border-bottom: 1px solid var(--dm-border);
@@ -497,6 +573,12 @@ a { color: inherit; }
   .dm-hero h1 { font-size: clamp(54px, 16vw, 78px); }
   .dm-lead { font-size: 21px; }
   .dm-portrait { max-width: 460px; }
+  .dm-hero-cta { grid-template-columns: 1fr; gap: 20px; padding: 24px 16px; }
+  .dm-hero-cta h2 { font-size: 36px; }
+  .dm-hero-cta__action { align-items: flex-start; flex-direction: column; }
+  .dm-hero-cta__action p { font-size: 19px; }
+  .dm-hero-cta__action .dm-button { width: 100%; justify-content: center; text-align: center; }
+  .dm-proof-grid { grid-template-columns: 1fr; }
   .dm-section__content > p { font-size: 19px; }
   .dm-formats { grid-template-columns: 1fr; }
   .dm-format { min-height: 190px; }
