@@ -60,7 +60,7 @@
   grid-template-columns: minmax(0, 1fr) minmax(320px, 0.65fr);
   gap: 56px;
   align-items: end;
-  margin: 0 32px;
+  margin: 0;
   padding: 88px 32px 72px;
   background: var(--paper-soft);
   color: var(--ink);
