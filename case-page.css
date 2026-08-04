@@ -50,6 +50,12 @@ a {
   text-transform: uppercase;
 }
 
+.case-top a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+}
+
 .brand {
   letter-spacing: 0.28em;
 }
@@ -360,6 +366,8 @@ h1 {
 
 .cta {
   display: inline-flex;
+  min-height: 44px;
+  align-items: center;
   margin-top: 24px;
   padding: 15px 18px;
   background: var(--cream);

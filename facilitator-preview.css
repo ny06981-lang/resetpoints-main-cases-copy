@@ -160,7 +160,24 @@ a { color: inherit; }
   text-transform: uppercase;
 }
 
-.dm-socials a { text-underline-offset: 4px; }
+.dm-socials a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  text-underline-offset: 4px;
+}
+
+.facilitator-top a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+}
+
+.dm-section a,
+.dm-hero-cta a,
+.dm-final-cta a {
+  min-height: 44px;
+}
 
 .dm-hero-cta {
   display: grid;

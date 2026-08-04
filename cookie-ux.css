@@ -98,8 +98,8 @@
 
 @media (max-width: 640px) {
   .rp-cookie-banner {
-    top: 76px !important;
-    bottom: auto !important;
+    top: auto !important;
+    bottom: 12px !important;
     max-height: 38vh;
   }
 }
