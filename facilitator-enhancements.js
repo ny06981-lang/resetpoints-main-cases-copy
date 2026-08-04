@@ -1,103 +1,65 @@
 (function () {
-  var page = window.location.pathname;
-  var isEnglish = document.documentElement.lang === "en";
-  var key = page.indexOf("dmitry-riman") > -1
-    ? "dmitry"
-    : page.indexOf("irina-shashkina") > -1
-      ? "irina"
-      : page.indexOf("elena-lensu") > -1
-        ? "elena"
-        : page.indexOf("max-rodin") > -1
-          ? "max"
-          : "";
+  var isRu = document.documentElement.lang === "ru";
+  var path = window.location.pathname;
+  var slug = path.indexOf("dmitry-riman") > -1 ? "dmitry" : path.indexOf("irina-shashkina") > -1 ? "irina" : path.indexOf("elena-lensu") > -1 ? "elena" : path.indexOf("max-rodin") > -1 ? "max" : "";
+  var root = isRu ? "../../../../" : "../../../";
+  var profileRoot = root + (isRu ? "ru/" : "en/");
 
-  var data = {
+  var profiles = {
     dmitry: {
-      companiesRu: [
-        ["Leroy Merlin", "Leroy", "leroy"], ["X5 Retail Group", "X5", "x5"], ["НК Роснефть", "РОСНЕФТЬ", "rosneft"],
-        ["Ascott Deco Rus", "ASCOTT", "ascott"], ["Kempinski", "KEMPINSKI", "kempinski"], ["РусГидро", "РусГидро", "rushydro"],
-        ["Polyana Group", "POLYANA", "polyana"], ["Наше Золото", "НАШЕ ЗОЛОТО", "gold"], ["Правительство Самарской области", "САМАРА", "samara"],
-        ["ГК «Бизнес-Гарант»", "БИЗНЕС-ГАРАНТ", "business"]
-      ],
-      companiesEn: [
-        ["Leroy Merlin", "Leroy", "leroy"], ["X5 Retail Group", "X5", "x5"], ["Rosneft", "ROSNEFT", "rosneft"],
-        ["Ascott Deco Rus", "ASCOTT", "ascott"], ["Kempinski", "KEMPINSKI", "kempinski"], ["RusHydro", "RusHydro", "rushydro"],
-        ["Polyana Group", "POLYANA", "polyana"], ["Nashe Zoloto", "NASHE ZOLOTO", "gold"], ["Samara Region Government", "SAMARA", "samara"],
-        ["Business Garant", "BUSINESS GARANT", "business"]
-      ],
-      noteRu: "Более 150 стратегических и командных сессий в DreamTeam. Логотипы собраны по организациям, публично указанным на официальном сайте команды.",
-      noteEn: "150+ strategy and team sessions through DreamTeam. The marks represent organizations named publicly by the team.",
+      name: ["Дмитрий Риман", "Dmitry Riman"], image: "dmitry-riman.jpg",
+      kicker: ["Фасилитатор / стратегия и командная работа", "Facilitator / strategy and team work"],
+      lead: ["Организационный консультант и фасилитатор, который помогает управленческим командам договориться о важном и превратить разговор в следующий шаг.", "An organizational consultant and facilitator who helps leadership teams align on what matters and turn a meaningful conversation into the next step."],
+      caption: ["Организационный консультант · фасилитатор стратегических сессий", "Organizational consultant · strategy session facilitator"],
+      meta: [["Стратегические сессии", "Strategy sessions"], ["Командная работа", "Team work"], ["Коучинг руководителей", "Executive coaching"]],
+      needTitle: ["Когда команде нужно договориться о важном", "When a team needs to align on what matters"],
+      needIntro: ["Когда у сильных людей разные приоритеты, а следующий шаг требует не ещё одного обсуждения, а общей картины и решения.", "When strong people hold different priorities and the next step requires more than another discussion: a shared picture and a decision."],
+      needs: [["Стратегия должна превратиться в понятные решения", "Strategy needs to become clear decisions"], ["Команде важно услышать друг друга и увидеть общую систему", "The team needs to hear each other and see the whole system"], ["Сложный разговор нельзя оставить на уровне мнений", "A difficult conversation cannot stay at the level of opinions"], ["Руководителям нужен внешний партнёр для фокуса и движения", "Leaders need an external partner for focus and momentum"]],
+      formatsTitle: ["Форматы работы", "Working formats"],
+      formats: [["Стратегическая сессия", "Strategy session", "Собрать общую картину, выбрать приоритеты и перевести стратегию в решения.", "Build a shared picture, choose priorities, and turn strategy into decisions."], ["Командная сессия", "Team session", "Прояснить смыслы, роли и способы взаимодействия, которые действительно работают.", "Clarify meaning, roles, and ways of working that hold up in practice."], ["Коучинг руководителей", "Executive coaching", "Индивидуальная работа с собственниками и руководителями в сложных управленческих ситуациях.", "One-to-one work with owners and leaders in complex management situations."], ["Сопровождение изменений", "Change support", "Помочь команде удержать новые договорённости и встроить их в ежедневную работу.", "Help a team keep new agreements alive in everyday work."]],
+      clientsTitle: ["Клиенты", "Clients"], clientIntro: ["Более 150 стратегических и командных сессий в DreamTeam. В подборке — организации, публично указанные командой.", "150+ strategy and team sessions through DreamTeam. The selection includes organizations named publicly by the team."],
+      clients: [["Leroy Merlin", "LEROY MERLIN"], ["X5 Retail Group", "X5"], ["Роснефть", "РОСНЕФТЬ"], ["Kempinski", "KEMPINSKI"], ["РусГидро", "РУСГИДРО"], ["Polyana Group", "POLYANA"], ["Самарская область", "САМАРА"], ["Бизнес-Гарант", "БИЗНЕС-ГАРАНТ"]],
+      resultLabel: ["Подход", "Approach"], resultTitle: ["Смысл, бизнес и живое взаимодействие", "Meaning, business, and human connection"], result: ["Дмитрий соединяет опыт топ-менеджмента, организационного консалтинга, фасилитации и коучинга. В работе он удерживает одновременно задачу бизнеса и то, как люди реально думают, договариваются и действуют вместе.", "Dmitry combines top-management experience, organizational consulting, facilitation, and coaching. He holds the business task together with how people actually think, align, and act as a team."],
       socials: [["DreamTeam", "https://dream-team.pro/"], ["Telegram", "https://t.me/RimanDm"]]
     },
     irina: {
-      companiesRu: [["Kokoc Group", "KOKOC", "kokoc"], ["LinguaLeo", "LinguaLeo", "lingua"], ["Groupon", "GROUPON", "groupon"], ["Rambler", "Rambler", "rambler"], ["E-promo", "E-PROMO", "epromo"], ["Сколково", "СКОЛКОВО", "skolkovo"]],
-      companiesEn: [["Kokoc Group", "KOKOC", "kokoc"], ["LinguaLeo", "LinguaLeo", "lingua"], ["Groupon", "GROUPON", "groupon"], ["Rambler", "Rambler", "rambler"], ["E-promo", "E-PROMO", "epromo"], ["Skolkovo", "SKOLKOVO", "skolkovo"]],
-      noteRu: "Компании и типы команд, с которыми Ирина работала в стратегических и управленческих форматах. Конкретные проекты раскрываются только с разрешения заказчиков.",
-      noteEn: "Companies and team contexts Irina has worked with in strategy and leadership formats. Specific projects are shared only with client permission.",
-      socials: [["LinkedIn", "https://www.linkedin.com/in/irinashashkina/"], ["Telegram", "https://t.me/ishashkina"], ["Channel", "https://t.me/ShashkinaIrina"]]
+      name: ["Ирина Шашкина", "Irina Shashkina"], image: "irina-shashkina.jpg",
+      kicker: ["Фасилитатор / стратегические ретриты", "Facilitator / strategy retreats"],
+      lead: ["Стратегический партнёр и архитектор логики бизнеса. Помогает принимать системные решения, когда старая логика бизнеса, ролей и взаимодействия перестала работать.", "A strategic partner and business logic architect. She helps leaders make systemic decisions when the old logic of the business, roles, and interaction no longer works."],
+      caption: ["Стратегический партнёр · архитектор логики бизнеса", "Strategic partner · business logic architect"],
+      meta: [["20+ лет опыта", "20+ years of experience"], ["Fortune 500", "Fortune 500"], ["Топ-команды", "Leadership teams"]],
+      needTitle: ["Когда команде нужен ретрит", "When a retreat is useful"], needIntro: ["Когда компания «застряла», решения есть, но не дают эффекта, а сильная команда всё ещё не складывается в единую систему.", "When a company is stuck, decisions are not producing results, and a strong team still does not operate as one system."],
+      needs: [["В бизнесе появилась внутренняя несостыковка", "The business has developed an internal mismatch"], ["Команда живёт в разных логиках и не слышит друг друга", "People are working from different logics and cannot hear each other"], ["Нужно выйти из операционки и увидеть систему целиком", "The team needs to step out of operations and see the whole system"], ["Компания переходит в новую фазу роста или изменений", "The company is entering a new phase of growth or change"]],
+      formatsTitle: ["Формат работы", "Working format"], formatsIntro: ["До ретрита — интервью и сбор контекста. Во время 2–3 дней — разбор текущей ситуации, работа с противоречиями, логикой бизнеса и динамикой команды. После — при необходимости сопровождение внедрения.", "Before the retreat: interviews and context gathering. During 2–3 days: the current situation, contradictions, business logic, and team dynamics. After: implementation support when needed."],
+      formats: [["Стратегический ретрит", "Strategy retreat", "Выйти из операционки, собрать ключевых людей и найти точку пересборки.", "Step out of operations, gather key people, and find the point where the system needs to be rebuilt."], ["Командная динамика", "Team dynamics", "Использовать Clifton как язык для понимания сильных сторон, ролей и напряжений.", "Use Clifton as a shared language for strengths, roles, and sources of tension."]],
+      clientsTitle: ["Клиенты", "Clients"], clientIntro: ["Ирина работала с Fortune 500, российскими корпорациями и технологическими стартапами. Конкретные проекты раскрываются с разрешения заказчиков.", "Irina has worked with Fortune 500 companies, Russian corporations, and technology startups. Specific projects are shared with client permission."],
+      clients: [["Fortune 500", "FORTUNE 500"], ["Российские корпорации", "CORPORATE TEAMS"], ["Технологические стартапы", "TECH STARTUPS"], ["Трансформация бизнеса", "BUSINESS TRANSFORMATION"], ["Новые направления", "NEW DIRECTIONS"], ["Лидерские команды", "LEADERSHIP TEAMS"]],
+      resultLabel: ["Результат", "Result"], resultTitle: ["Из сложной ситуации появляется управляемость", "Complexity becomes manageable"], result: ["Команда начинает видеть систему одинаково, сокращает бесполезные обсуждения и принимает решения, которые можно реализовывать.", "The team begins to see the system in the same way, reduces unproductive discussion, and makes decisions it can actually implement."], socials: [["LinkedIn", "https://www.linkedin.com/in/irinashashkina/"], ["Telegram", "https://t.me/ishashkina"], ["Канал", "https://t.me/ShashkinaIrina"]]
     },
     elena: {
-      companiesRu: [["Pravo.ru / Pravo.Tech", "Pravo.ru", "pravo"], ["Rocket10", "ROCKET10", "rocket"], ["OTUS", "OTUS", "otus"], ["Нетология", "НЕТОЛОГИЯ", "netology"], ["Skillbox", "SKILLBOX", "skillbox"], ["Topcareer", "TOPCAREER", "topcareer"]],
-      companiesEn: [["Pravo.ru / Pravo.Tech", "Pravo.ru", "pravo"], ["Rocket10", "ROCKET10", "rocket"], ["OTUS", "OTUS", "otus"], ["Netology", "NETOLOGY", "netology"], ["Skillbox", "SKILLBOX", "skillbox"], ["Topcareer", "TOPCAREER", "topcareer"]],
-      noteRu: "Компании и образовательные платформы, с которыми Елена работала в HR, консалтинге и программах развития команд.",
-      noteEn: "Companies and education platforms Elena has worked with across HR leadership, consulting, and team development programs.",
-      socials: [["LinkedIn", "https://ru.linkedin.com/in/%D0%B5%D0%BB%D0%B5%D0%BD%D0%B0-%D0%BB%D0%B5%D0%BD%D1%81%D1%83-a6209b41"], ["Telegram", "https://t.me/lensu"], ["Profile", "https://synchronize.ru/elena-lensu"]]
+      name: ["Елена Ленсу", "Elena Lensu"], image: "elena-lensu.jpg",
+      kicker: ["Фасилитатор / командные сессии и Development Lab", "Facilitator / team sessions and Development Lab"],
+      lead: ["Эксперт по человеческому функционированию в сложной рабочей среде. Помогает руководителям и командам сохранять ясность, зрелое взаимодействие и эффективность под нагрузкой.", "An expert in human functioning in complex work environments. She helps leaders and teams preserve clarity, mature interaction, and effectiveness under pressure."],
+      caption: ["Эксперт по человеческому функционированию в сложной рабочей среде", "Expert in human functioning in complex work environments"], meta: [["Гештальт-терапевт", "Gestalt therapist"], ["Бизнес-эксперт", "Business expert"], ["ex-HRD", "Former HRD"]],
+      needTitle: ["Когда команде нужна ясность", "When a team needs clarity"], needIntro: ["Когда давление растёт, в компании снижается качество мышления, ухудшается коммуникация и падает управленческая ясность.", "When pressure rises, the quality of thinking, communication, and management clarity starts to decline."], needs: [["Перегрузка и снижение эффективности команд", "Team overload and declining effectiveness"], ["Сложности в коммуникации и обратной связи", "Difficulties in communication and feedback"], ["Управленческая неясность у руководителей", "Management ambiguity among leaders"], ["Рост, изменения и потеря фокуса", "Growth, change, and loss of focus"]],
+      formatsTitle: ["Форматы работы", "Working formats"], formats: [["Лекция", "Lecture", "60–120 минут для быстрого сдвига мышления и фокусировки.", "60–120 minutes for a fast shift in thinking and focus."], ["Практическая сессия", "Practice session", "Работа с реальными кейсами участников: не теория, а проживание и применение.", "Work with real participant cases: not theory, but experience and application."], ["Development Lab", "Development Lab", "Семинедельное пространство развития управленческого мышления через реальные рабочие ситуации.", "A seven-week space for developing management thinking through real work situations."], ["Кастомная программа", "Custom program", "Формат, адаптированный под контекст компании, уровень команды и конкретный запрос.", "A format adapted to the company context, team level, and specific request."]],
+      clientsTitle: ["Клиенты", "Clients"], clientIntro: ["Елена работала как HRD и бизнес-эксперт в технологических компаниях, а также вела образовательные программы.", "Elena has worked as an HRD and business expert in technology companies and led development programs."], clients: [["Pravo.ru / Pravo.Tech", "PRAVO.RU"], ["Rocket10", "ROCKET10"], ["OTUS", "OTUS"], ["Нетология", "NETOLOGY"], ["Skillbox", "SKILLBOX"], ["Topcareer", "TOPCAREER"]],
+      resultLabel: ["Ключевой результат", "Key result"], resultTitle: ["Меняется способ думать и взаимодействовать", "People change how they think and interact"], result: ["Работа не про «ещё один тренинг», а про изменение того, как люди принимают решения и действуют в реальной работе — без внутреннего выгорания.", "The work is not another training, but a change in how people make decisions and act in real work without burning out."], socials: [["LinkedIn", "https://ru.linkedin.com/in/%D0%B5%D0%BB%D0%B5%D0%BD%D0%B0-%D0%BB%D0%B5%D0%BD%D1%81%D1%83-a6209b41"], ["Telegram", "https://t.me/lensu"], ["Профиль", "https://synchronize.ru/elena-lensu"]]
     },
     max: {
-      companiesRu: [["Avito", "AVITO", "avito", "facilitator-assets/logos/avito.svg"], ["Яндекс", "YANDEX", "yandex", "facilitator-assets/logos/yandex.svg"], ["МТС", "MTS", "mts", "facilitator-assets/logos/mts.svg"], ["Ростелеком", "ROSTELECOM", "rostelecom", "facilitator-assets/logos/rostelecom.svg"], ["QIWI", "QIWI", "qiwi", "facilitator-assets/logos/qiwi.svg"], ["KROK", "KROK", "krok", "facilitator-assets/logos/krok.svg"], ["PandaDoc", "PANDADOC", "pandadoc", "facilitator-assets/logos/pandadoc.svg"], ["СберМаркет", "SBERMARKET", "sbermarket", "facilitator-assets/logos/sbermarket.svg"]],
-      companiesEn: [["Avito", "AVITO", "avito", "facilitator-assets/logos/avito.svg"], ["Yandex", "YANDEX", "yandex", "facilitator-assets/logos/yandex.svg"], ["MTS", "MTS", "mts", "facilitator-assets/logos/mts.svg"], ["Rostelecom", "ROSTELECOM", "rostelecom", "facilitator-assets/logos/rostelecom.svg"], ["QIWI", "QIWI", "qiwi", "facilitator-assets/logos/qiwi.svg"], ["KROK", "KROK", "krok", "facilitator-assets/logos/krok.svg"], ["PandaDoc", "PANDADOC", "pandadoc", "facilitator-assets/logos/pandadoc.svg"], ["SberMarket", "SBERMARKET", "sbermarket", "facilitator-assets/logos/sbermarket.svg"]],
-      socials: [["LinkedIn", "https://www.linkedin.com/in/max-rodin-14115a79"], ["Telegram канал", "https://t.me/mindfulleadersrussia"], ["deep mind", "https://deepmindworld.vercel.app/"]]
+      name: ["Макс Родин", "Max Rodin"], image: "max-rodin.jpg", kicker: ["Фасилитатор / трансформация и осознанность", "Facilitator / transformation and awareness"], lead: ["Фасилитатор групповых процессов и основатель deep mind consulting. Развивает сотрудников через осознанность, работу с состоянием и метанавыки, помогая командам устойчиво действовать в сложной реальности.", "A group process facilitator and founder of deep mind consulting. He develops meta-skills through awareness and state work, helping teams act with greater resilience in complexity."], caption: ["Фасилитатор групповых процессов · основатель deep mind consulting", "Group process facilitator · founder of deep mind consulting"], meta: [["Теория U", "Theory U"], ["Групповой процесс", "Group process"], ["deep mind consulting", "deep mind consulting"]], needTitle: ["Когда команде нужен новый способ работать", "When teams need a new way to work"], needIntro: ["Когда перегрузка, неопределённость или изменения начинают влиять на доверие, энергию и качество решений.", "When overload, uncertainty, or change starts affecting trust, energy, and the quality of decisions."], needs: [["Команда проходит через сложный период или трансформацию", "The team is moving through a difficult period or transformation"], ["Лидерам важно научиться работать со своим состоянием", "Leaders need to learn how to work with their own state"], ["Нужно вернуть внимание, доверие и живой контакт", "The team needs to restore attention, trust, and live contact"], ["Компания ищет практичный wellbeing-формат, а не ещё одну лекцию", "The company needs a practical wellbeing format, not another lecture"]], formatsTitle: ["Форматы работы", "Working formats"], formats: [["Less Stress", "Less Stress", "Практики работы со стрессом и выгоранием в фасилитируемом групповом формате.", "Practical work with stress and burnout in a facilitated group format."], ["Осознанное лидерство", "Conscious leadership", "Работа с вниманием, состоянием и качеством решений руководителей.", "Work with attention, state, and the quality of leaders’ decisions."], ["Групповой процесс", "Group process", "Безопасное пространство для честного разговора, исследования и общего движения.", "A safe space for honest conversation, exploration, and shared movement."], ["Командный выезд", "Team retreat", "Фасилитационный слой для ретрита, оффсайта или программы развития команды.", "A facilitation layer for a retreat, offsite, or team development program."]], clientsTitle: ["Клиенты", "Clients"], clientIntro: ["Компании и команды, участвовавшие в образовательных, wellbeing- и фасилитационных программах deep mind.", "Companies and teams that took part in deep mind education, wellbeing, and facilitation programs."], clients: [["Avito", "AVITO", "facilitator-assets/logos/avito.svg"], ["Яндекс", "YANDEX", "facilitator-assets/logos/yandex.svg"], ["МТС", "MTS", "facilitator-assets/logos/mts.svg"], ["Ростелеком", "ROSTELECOM", "facilitator-assets/logos/rostelecom.svg"], ["QIWI", "QIWI", "facilitator-assets/logos/qiwi.svg"], ["KROK", "KROK", "facilitator-assets/logos/krok.svg"], ["PandaDoc", "PANDADOC", "facilitator-assets/logos/pandadoc.svg"], ["СберМаркет", "SBERMARKET", "facilitator-assets/logos/sbermarket.svg"]], resultLabel: ["Подход", "Approach"], resultTitle: ["Метанавыки, которые остаются в работе", "Meta-skills that stay with the team"], result: ["Макс соединяет практики осознанности, работу с состоянием и фасилитацию. Его задача — не просто снять напряжение на отдельной встрече, а помочь людям освоить навыки, которые продолжают работать в повседневной жизни команды.", "Max combines awareness practices, state work, and group process facilitation. The goal is not only to reduce tension in one session, but to help people build skills that continue working in everyday team life."], socials: [["LinkedIn", "https://www.linkedin.com/in/max-rodin-14115a79"], ["Telegram канал", "https://t.me/mindfulleadersrussia"], ["deep mind", "https://deepmindworld.vercel.app/"]]
     }
-  }[key];
+  }[slug];
 
-  if (!data) return;
+  var profile = profiles;
+  if (!profile) return;
+  function t(value) { return value[isRu ? 0 : 1]; }
+  function esc(value) { return String(value).replace(/[&<>"']/g, function (character) { return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[character]; }); }
+  function linkList(items) { return items.map(function (item) { return '<a href="' + esc(item[1]) + '" target="_blank" rel="noreferrer">' + esc(item[0]) + '</a>'; }).join(""); }
+  function logo(item) { var source = item[2] ? root + item[2] : ""; return '<div class="dm-logo" aria-label="' + esc(item[0]) + '">' + (source ? '<img src="' + source + '" alt="' + esc(item[0]) + '">' : '<span>' + esc(item[1]) + '</span>') + '</div>'; }
+  function formatCards() { return profile.formats.map(function (item, index) { return '<article class="dm-format"><p class="dm-eyebrow dm-format__number">' + String(index + 1).padStart(2, "0") + ' / ' + esc(index === 0 ? (isRu ? "основной формат" : "core format") : (isRu ? "командная работа" : "team work")) + '</p><h3>' + esc(t([item[0], item[1]])) + '</h3><p>' + esc(t([item[2], item[3]])) + '</p></article>'; }).join(""); }
 
-  function addClients() {
-    document.querySelectorAll(".facilitator-clients").forEach(function (section) { section.remove(); });
-    var section = document.createElement("section");
-    section.className = "facilitator-clients";
-    var title = isEnglish ? "Clients" : "Клиенты";
-    var items = isEnglish ? data.companiesEn : data.companiesRu;
-    var note = isEnglish ? data.noteEn : data.noteRu;
-    section.innerHTML = '<div class="facilitator-section"><h2>' + title + '</h2><div class="facilitator-section__content"><ul class="facilitator-clients__list">' + items.map(function (item) {
-      var logoSrc = isEnglish ? '../../../' + item[3] : '../../../../' + item[3];
-      return '<li class="facilitator-logo facilitator-logo--' + item[2] + '" aria-label="' + item[0] + '">' + (item[3] ? '<img src="' + logoSrc + '" alt="' + item[0] + '" loading="lazy">' : '<span>' + item[1] + '</span><small>' + item[0] + '</small>') + '</li>';
-    }).join("") + '</ul>' + (note ? '<p class="facilitator-clients__note">' + note + '</p>' : '') + '</div></div>';
-    var sections = Array.from(document.querySelectorAll(".facilitator-section"));
-    var formatsSection = sections.find(function (candidate) {
-      var heading = candidate.querySelector(":scope > h2");
-      return heading && /формат|working format/i.test(heading.textContent);
-    });
-    if (formatsSection) formatsSection.parentNode.insertBefore(section, formatsSection);
-  }
-
-  function addConversion() {
-    var oldResult = document.querySelector(".facilitator-result");
-    if (!oldResult) return;
-    var label = oldResult.querySelector(".facilitator-label")?.textContent.trim() || (isEnglish ? "Key result" : "Ключевой результат");
-    var title = oldResult.querySelector("h2")?.textContent.trim() || "";
-    var paragraph = oldResult.querySelector(".facilitator-section__content > p")?.textContent.trim() || "";
-    var section = document.createElement("section");
-    section.className = "facilitator-conversion";
-    section.innerHTML = '<div class="facilitator-section"><div><p class="facilitator-label">' + label + '</p><h2>' + title + '</h2></div><div class="facilitator-section__content"><p>' + paragraph + '</p><a class="facilitator-cta" href="https://t.me/chikhalov" target="_blank" rel="noreferrer">' + (isEnglish ? "Discuss a retreat&nbsp;→" : "Обсудить ретрит&nbsp;→") + '</a></div></div>';
-    oldResult.replaceWith(section);
-    document.querySelectorAll(".facilitator-final-cta").forEach(function (cta) { cta.remove(); });
-  }
-
-  function addHeroSocials() {
-    var portrait = document.querySelector(".facilitator-portrait");
-    if (!portrait) return;
-    portrait.querySelectorAll(".facilitator-hero-socials").forEach(function (nav) { nav.remove(); });
-    var nav = document.createElement("nav");
-    nav.className = "facilitator-hero-socials";
-    nav.setAttribute("aria-label", isEnglish ? "Facilitator profiles" : "Профили фасилитатора");
-    nav.innerHTML = data.socials.map(function (social) {
-      return '<a href="' + social[1] + '" target="_blank" rel="noreferrer">' + social[0] + '</a>';
-    }).join("");
-    portrait.appendChild(nav);
-  }
-
-  addClients();
-  addHeroSocials();
-  addConversion();
+  document.title = t([profile.name[0] + " — фасилитатор | Resetpoints", profile.name[1] + " — facilitator | Resetpoints"]);
+  document.body.className = "dm-page";
+  document.body.innerHTML = '<header class="dm-nav"><a href="' + profileRoot + '">Resetpoints</a><a class="dm-nav__back" href="' + profileRoot + '#facilitators">' + (isRu ? "Назад к ведущим" : "Back to facilitators") + '</a></header><main><section class="dm-hero"><div><p class="dm-kicker">' + esc(t(profile.kicker)) + '</p><h1>' + esc(t(profile.name)) + '</h1><p class="dm-lead">' + esc(t(profile.lead)) + '</p><div class="dm-meta">' + profile.meta.map(function (item) { return '<span>' + esc(t(item)) + '</span>'; }).join("") + '</div></div><figure class="dm-portrait"><div class="dm-portrait__frame"><img src="' + root + 'facilitator-assets/' + profile.image + '" alt="' + esc(t(profile.name)) + '"><span class="dm-portrait__mark">' + (slug === "max" ? "dm" : String(profile.name[0]).split(" ")[0].slice(0, 2).toLowerCase()) + '</span></div><figcaption>' + esc(t(profile.caption)) + '</figcaption><nav class="dm-socials" aria-label="' + (isRu ? "Профили фасилитатора" : "Facilitator profiles") + '">' + linkList(profile.socials) + '</nav></figure></section><div class="dm-band"><section class="dm-section"><h2>' + esc(t(profile.needTitle)) + '</h2><div class="dm-section__content"><p>' + esc(t(profile.needIntro)) + '</p><ul class="dm-list">' + profile.needs.map(function (item) { return '<li>' + esc(t(item)) + '</li>'; }).join("") + '</ul></div></section></div><section class="dm-section"><h2>' + esc(t(profile.formatsTitle)) + '</h2><div class="dm-section__content">' + (profile.formatsIntro ? '<p class="dm-format-intro">' + esc(t(profile.formatsIntro)) + '</p>' : '') + '<div class="dm-formats">' + formatCards() + '</div></div></section><section class="dm-section dm-clients"><h2>' + esc(t(profile.clientsTitle)) + '</h2><div class="dm-section__content"><p>' + esc(t(profile.clientIntro)) + '</p><div class="dm-logo-grid">' + profile.clients.map(logo).join("") + '</div></div></section><section class="dm-cta"><h2>' + (isRu ? "Собрать формат<br>под задачу команды" : "Build a format<br>for your team") + '</h2><div class="dm-cta__box"><p>' + (isRu ? "Расскажите, что происходит в команде. Подберём нужную глубину, ритм и ведущего." : "Tell us what is happening in the team. We will shape the right depth, rhythm, and facilitator.") + '</p><a class="dm-button" href="https://t.me/chikhalov" target="_blank" rel="noreferrer">' + (isRu ? "Обсудить сессию →" : "Discuss a session →") + '</a></div></section></main><footer class="dm-footer">Resetpoints · corporate retreats, offsites, and team sessions</footer>';
 }());
