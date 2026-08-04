@@ -44,12 +44,8 @@
       socials: [["LinkedIn", "https://ru.linkedin.com/in/%D0%B5%D0%BB%D0%B5%D0%BD%D0%B0-%D0%BB%D0%B5%D0%BD%D1%81%D1%83-a6209b41"], ["Telegram", "https://t.me/lensu"], ["Profile", "https://synchronize.ru/elena-lensu"]]
     },
     max: {
-      companiesRu: [["Avito", "AVITO", "avito"], ["Яндекс", "ЯНДЕКС", "yandex"], ["МТС", "МТС", "mts"], ["Ростелеком", "РОСТЕЛЕКОМ", "rostelecom"], ["QIWI", "QIWI", "qiwi"], ["KROK", "KROK", "krok"], ["PandaDoc", "PANDADOC", "pandadoc"], ["СберМаркет", "СБЕРМАРКЕТ", "sbermarket"]],
-      companiesEn: [["Avito", "AVITO", "avito"], ["Yandex", "YANDEX", "yandex"], ["MTS", "MTS", "mts"], ["Rostelecom", "ROSTELECOM", "rostelecom"], ["QIWI", "QIWI", "qiwi"], ["KROK", "KROK", "krok"], ["PandaDoc", "PANDADOC", "pandadoc"], ["SberMarket", "SBERMARKET", "sbermarket"]],
-      caseRu: "Публичный кейс Avito / Less Stress: 4-недельная программа для C-level, руководителей групп и специалистов. В формате были общие занятия, поддержка в чате и ежедневные практики по 15 минут. В кейсе deep mind зафиксированы снижение психоэмоционального напряжения на 15%, рост ощущения себя отдохнувшим после сна на 38% и внедрение практик у 90% участников.",
-      caseEn: "Public Avito / Less Stress case: a four-week program for C-level leaders, team managers, and specialists. It combined group sessions, chat support, and 15-minute daily practices. The case reports a 15% reduction in psycho-emotional tension, a 38% increase in feeling rested after sleep, and 90% of participants adopting the practices.",
-      noteRu: "Компании и команды, участвовавшие в образовательных, wellbeing- и фасилитационных программах deep mind. deep mind consulting — собственная компания Максима Родина, а не клиентский логотип.",
-      noteEn: "Companies and teams that took part in deep mind’s education, wellbeing, and facilitation programs. deep mind consulting is Max Rodin’s own company, not a client logo.",
+      companiesRu: [["Avito", "AVITO", "avito", "facilitator-assets/logos/avito.svg"], ["Яндекс", "YANDEX", "yandex", "facilitator-assets/logos/yandex.svg"], ["МТС", "MTS", "mts", "facilitator-assets/logos/mts.svg"], ["Ростелеком", "ROSTELECOM", "rostelecom", "facilitator-assets/logos/rostelecom.svg"], ["QIWI", "QIWI", "qiwi", "facilitator-assets/logos/qiwi.svg"], ["KROK", "KROK", "krok", "facilitator-assets/logos/krok.svg"], ["PandaDoc", "PANDADOC", "pandadoc", "facilitator-assets/logos/pandadoc.svg"], ["СберМаркет", "SBERMARKET", "sbermarket", "facilitator-assets/logos/sbermarket.svg"]],
+      companiesEn: [["Avito", "AVITO", "avito", "facilitator-assets/logos/avito.svg"], ["Yandex", "YANDEX", "yandex", "facilitator-assets/logos/yandex.svg"], ["MTS", "MTS", "mts", "facilitator-assets/logos/mts.svg"], ["Rostelecom", "ROSTELECOM", "rostelecom", "facilitator-assets/logos/rostelecom.svg"], ["QIWI", "QIWI", "qiwi", "facilitator-assets/logos/qiwi.svg"], ["KROK", "KROK", "krok", "facilitator-assets/logos/krok.svg"], ["PandaDoc", "PANDADOC", "pandadoc", "facilitator-assets/logos/pandadoc.svg"], ["SberMarket", "SBERMARKET", "sbermarket", "facilitator-assets/logos/sbermarket.svg"]],
       socials: [["LinkedIn", "https://www.linkedin.com/in/max-rodin-14115a79"], ["Telegram канал", "https://t.me/mindfulleadersrussia"], ["deep mind", "https://deepmindworld.vercel.app/"]]
     }
   }[key];
@@ -63,10 +59,10 @@
     var title = isEnglish ? "Clients" : "Клиенты";
     var items = isEnglish ? data.companiesEn : data.companiesRu;
     var note = isEnglish ? data.noteEn : data.noteRu;
-    var clientCase = isEnglish ? data.caseEn : data.caseRu;
     section.innerHTML = '<div class="facilitator-section"><h2>' + title + '</h2><div class="facilitator-section__content"><ul class="facilitator-clients__list">' + items.map(function (item) {
-      return '<li class="facilitator-logo facilitator-logo--' + item[2] + '" aria-label="' + item[0] + '"><span>' + item[1] + '</span><small>' + item[0] + '</small></li>';
-    }).join("") + '</ul><div class="facilitator-client-case"><p class="facilitator-label">' + (isEnglish ? "Selected case" : "Публичный кейс") + '</p><p>' + clientCase + '</p></div><p class="facilitator-clients__note">' + note + '</p></div></div>';
+      var logoSrc = isEnglish ? '../../../' + item[3] : '../../../../' + item[3];
+      return '<li class="facilitator-logo facilitator-logo--' + item[2] + '" aria-label="' + item[0] + '">' + (item[3] ? '<img src="' + logoSrc + '" alt="' + item[0] + '" loading="lazy">' : '<span>' + item[1] + '</span><small>' + item[0] + '</small>') + '</li>';
+    }).join("") + '</ul>' + (note ? '<p class="facilitator-clients__note">' + note + '</p>' : '') + '</div></div>';
     var sections = Array.from(document.querySelectorAll(".facilitator-section"));
     var formatsSection = sections.find(function (candidate) {
       var heading = candidate.querySelector(":scope > h2");
