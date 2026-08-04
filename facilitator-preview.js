@@ -56,7 +56,13 @@
   function t(value) { return value[isRu ? 0 : 1]; }
   function esc(value) { return String(value).replace(/[&<>"']/g, function (character) { return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[character]; }); }
   function linkList(items) { return items.map(function (item) { return '<a href="' + esc(item[1]) + '" target="_blank" rel="noreferrer">' + esc(item[0]) + '</a>'; }).join(""); }
-  function logo(item) { var source = item[2] ? root + item[2] : ""; return '<div class="dm-logo" aria-label="' + esc(item[0]) + '">' + (source ? '<img src="' + source + '" alt="' + esc(item[0]) + '">' : '<span>' + esc(item[1]) + '</span>') + '</div>'; }
+  function logo(item) {
+    var source = item[2] ? root + item[2] : "";
+    if (source) return '<div class="dm-logo" aria-label="' + esc(item[0]) + '"><img src="' + source + '" alt="' + esc(item[0]) + '"></div>';
+    var mark = String(item[1] || item[0]).toUpperCase();
+    var size = mark.length > 18 ? 20 : mark.length > 12 ? 24 : 28;
+    return '<div class="dm-logo" aria-label="' + esc(item[0]) + '"><svg class="dm-logo__wordmark" viewBox="0 0 220 48" role="img" aria-label="' + esc(item[0]) + '"><text x="0" y="32" font-size="' + size + '" font-family="Arial, Helvetica, sans-serif" font-weight="800" letter-spacing="1">' + esc(mark) + '</text></svg></div>';
+  }
   function formatCards() { return profile.formats.map(function (item, index) { return '<article class="dm-format"><p class="dm-eyebrow dm-format__number">' + String(index + 1).padStart(2, "0") + ' / ' + esc(index === 0 ? (isRu ? "основной формат" : "core format") : (isRu ? "командная работа" : "team work")) + '</p><h3>' + esc(t([item[0], item[1]])) + '</h3><p>' + esc(t([item[2], item[3]])) + '</p></article>'; }).join(""); }
 
   document.title = t([profile.name[0] + " — фасилитатор | Resetpoints", profile.name[1] + " — facilitator | Resetpoints"]);

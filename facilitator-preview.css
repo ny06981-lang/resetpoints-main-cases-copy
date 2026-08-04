@@ -281,12 +281,12 @@ a { color: inherit; }
   opacity: 0.9;
 }
 
-.dm-logo span {
-  font-size: 15px;
-  font-weight: 850;
-  letter-spacing: 0.02em;
-  line-height: 1;
-  text-transform: uppercase;
+.dm-logo__wordmark {
+  display: block;
+  width: 126px;
+  height: 46px;
+  overflow: visible;
+  fill: var(--dm-text);
 }
 
 .dm-cta {
@@ -370,6 +370,7 @@ a { color: inherit; }
   .dm-logo-grid { gap: 18px 24px; margin-top: 24px; }
   .dm-logo { min-width: 92px; min-height: 48px; }
   .dm-logo img { width: 112px; height: 40px; }
+  .dm-logo__wordmark { width: 112px; height: 40px; }
   .dm-cta__box { padding: 24px; }
   .dm-cta__box p { font-size: 21px; }
 }
