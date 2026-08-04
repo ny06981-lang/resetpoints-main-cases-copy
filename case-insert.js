@@ -119,16 +119,6 @@
   const facilitators = isRu
     ? [
         {
-          name: "Дмитрий Риман",
-          slug: "dmitry-riman",
-          role: "Организационный консультант · фасилитатор стратегических сессий",
-          description: "Помогает управленческим командам договориться о важном, увидеть общую картину и превратить разговор в следующий шаг.",
-          tags: ["Стратегические сессии", "Командные сессии", "Коучинг руководителей"],
-          stats: ["20 лет в бизнесе", "150+ сессий", "600+ часов коучинга"],
-          image: "dmitry-riman.jpg",
-          alt: "Дмитрий Риман, организационный консультант и фасилитатор",
-        },
-        {
           name: "Ирина Шашкина",
           slug: "irina-shashkina",
           role: "Стратегический партнёр · архитектор логики бизнеса",
@@ -158,18 +148,18 @@
           image: "max-rodin.jpg",
           alt: "Макс Родин, фасилитатор трансформации и основатель deep mind consulting",
         },
+        {
+          name: "Дмитрий Риман",
+          slug: "dmitry-riman",
+          role: "Организационный консультант · фасилитатор стратегических сессий",
+          description: "Помогает управленческим командам договориться о важном, увидеть общую картину и превратить разговор в следующий шаг.",
+          tags: ["Стратегические сессии", "Командные сессии", "Коучинг руководителей"],
+          stats: ["20 лет в бизнесе", "150+ сессий", "600+ часов коучинга"],
+          image: "dmitry-riman.jpg",
+          alt: "Дмитрий Риман, организационный консультант и фасилитатор",
+        },
       ]
     : [
-        {
-          name: "Dmitry Riman",
-          slug: "dmitry-riman",
-          role: "Organizational consultant · strategy session facilitator",
-          description: "Helps leadership teams align on what matters, see the bigger picture, and turn a meaningful conversation into the next step.",
-          tags: ["Strategy sessions", "Team sessions", "Executive coaching"],
-          stats: ["20 years in business", "150+ sessions", "600+ coaching hours"],
-          image: "dmitry-riman.jpg",
-          alt: "Dmitry Riman, organizational consultant and facilitator",
-        },
         {
           name: "Irina Shashkina",
           slug: "irina-shashkina",
@@ -199,6 +189,16 @@
           stats: ["Founder, deep mind consulting", "Group processes", "B2B and B2C"],
           image: "max-rodin.jpg",
           alt: "Max Rodin, transformation facilitator and founder of deep mind consulting",
+        },
+        {
+          name: "Dmitry Riman",
+          slug: "dmitry-riman",
+          role: "Organizational consultant · strategy session facilitator",
+          description: "Helps leadership teams align on what matters, see the bigger picture, and turn a meaningful conversation into the next step.",
+          tags: ["Strategy sessions", "Team sessions", "Executive coaching"],
+          stats: ["20 years in business", "150+ sessions", "600+ coaching hours"],
+          image: "dmitry-riman.jpg",
+          alt: "Dmitry Riman, organizational consultant and facilitator",
         },
       ];
 
@@ -421,7 +421,6 @@
                   </a>
                   <div class="rp-facilitator-card__body">
                     <div class="rp-facilitator-card__topline">
-                      <span class="rp-facilitator-card__index">${String(index + 1).padStart(2, "0")}</span>
                       <div class="rp-facilitator-card__tags">${item.tags.map((tag) => `<span>${tag}</span>`).join("")}</div>
                     </div>
                     <h3>${item.name}</h3>
@@ -441,7 +440,6 @@
         <div class="rp-facilitators__pagination" data-facilitator-pagination aria-label="${isRu ? "Навигация по ведущим" : "Facilitator navigation"}">
           ${facilitators.map((item, index) => `<button type="button" class="rp-facilitators__dot${index === 0 ? " is-active" : ""}" data-facilitator-dot="${index}" aria-label="${isRu ? "Открыть профиль " : "Open profile "}${item.name}" aria-current="${index === 0 ? "true" : "false"}"></button>`).join("")}
         </div>
-        <span class="rp-facilitators__count" data-facilitator-count aria-live="polite">01 / ${String(facilitators.length).padStart(2, "0")}</span>
       </div>
     `;
 
@@ -450,7 +448,6 @@
     const viewport = section.querySelector("[data-facilitator-viewport]");
     const slides = Array.from(section.querySelectorAll("[data-facilitator-slide]"));
     const dots = Array.from(section.querySelectorAll("[data-facilitator-dot]"));
-    const count = section.querySelector("[data-facilitator-count]");
     const prev = section.querySelector("[data-facilitator-prev]");
     const next = section.querySelector("[data-facilitator-next]");
     const setActive = () => {
@@ -463,7 +460,6 @@
         dot.classList.toggle("is-active", index === active);
         dot.setAttribute("aria-current", index === active ? "true" : "false");
       });
-      count.textContent = `${String(active + 1).padStart(2, "0")} / ${String(slides.length).padStart(2, "0")}`;
     };
     const move = (direction) => viewport.scrollBy({ left: direction * viewport.clientWidth * 0.88, behavior: "smooth" });
     prev.addEventListener("click", () => move(-1));
