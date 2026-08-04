@@ -124,6 +124,30 @@
   text-transform: uppercase;
 }
 
+.facilitator-hero-socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-top: 16px;
+}
+
+.facilitator-hero-socials a {
+  color: var(--ink);
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  line-height: 1.35;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  opacity: 0.72;
+}
+
+.facilitator-hero-socials a:hover {
+  opacity: 1;
+}
+
 .facilitator-meta {
   display: flex;
   flex-wrap: wrap;
@@ -406,19 +430,6 @@
 .facilitator-conversion .facilitator-cta:hover {
   background: #fff6e7;
   color: var(--ink);
-}
-
-.facilitator-conversion .facilitator-socials {
-  margin-top: 20px;
-}
-
-.facilitator-conversion .facilitator-socials a {
-  color: var(--ink);
-  opacity: 0.68;
-}
-
-.facilitator-conversion .facilitator-socials a:hover {
-  opacity: 1;
 }
 
 .facilitator-result h2 {

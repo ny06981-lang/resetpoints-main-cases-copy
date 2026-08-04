@@ -48,7 +48,7 @@
       companiesEn: [["Avito", "AVITO", "avito"], ["Yandex", "YANDEX", "yandex"], ["MTS", "MTS", "mts"], ["Rostelecom", "ROSTELECOM", "rostelecom"], ["QIWI", "QIWI", "qiwi"], ["KROK", "KROK", "krok"], ["PandaDoc", "PANDADOC", "pandadoc"]],
       noteRu: "Компании, чьи сотрудники участвовали в образовательных и фасилитационных программах deep mind. deep mind consulting — собственная компания Максима Родина, а не клиентский логотип.",
       noteEn: "Companies whose employees took part in deep mind’s education and facilitation programs. deep mind consulting is Max Rodin’s own company, not a client logo.",
-      socials: [["LinkedIn", "https://www.linkedin.com/in/max-rodin-14115a79"], ["Telegram", "https://t.me/mindfulleadersrussia"], ["deep mind consulting", "https://deepmindworld.vercel.app"]]
+      socials: [["LinkedIn", "https://www.linkedin.com/in/max-rodin-14115a79"], ["Telegram канал", "https://t.me/mindfulleadersrussia"], ["deep mind", "https://deepmindworld.vercel.app/"]]
     }
   }[key];
 
@@ -78,16 +78,27 @@
     var label = oldResult.querySelector(".facilitator-label")?.textContent.trim() || (isEnglish ? "Key result" : "Ключевой результат");
     var title = oldResult.querySelector("h2")?.textContent.trim() || "";
     var paragraph = oldResult.querySelector(".facilitator-section__content > p")?.textContent.trim() || "";
-    var socials = data.socials.map(function (social) {
-      return '<a href="' + social[1] + '" target="_blank" rel="noreferrer">' + social[0] + '</a>';
-    }).join("");
     var section = document.createElement("section");
     section.className = "facilitator-conversion";
-    section.innerHTML = '<div class="facilitator-section"><div><p class="facilitator-label">' + label + '</p><h2>' + title + '</h2></div><div class="facilitator-section__content"><p>' + paragraph + '</p><a class="facilitator-cta" href="https://t.me/chikhalov" target="_blank" rel="noreferrer">' + (isEnglish ? "Discuss a retreat&nbsp;→" : "Обсудить ретрит&nbsp;→") + '</a><nav class="facilitator-socials" aria-label="' + (isEnglish ? "Public profiles" : "Публичные профили") + '">' + socials + '</nav></div></div>';
+    section.innerHTML = '<div class="facilitator-section"><div><p class="facilitator-label">' + label + '</p><h2>' + title + '</h2></div><div class="facilitator-section__content"><p>' + paragraph + '</p><a class="facilitator-cta" href="https://t.me/chikhalov" target="_blank" rel="noreferrer">' + (isEnglish ? "Discuss a retreat&nbsp;→" : "Обсудить ретрит&nbsp;→") + '</a></div></div>';
     oldResult.replaceWith(section);
     document.querySelectorAll(".facilitator-final-cta").forEach(function (cta) { cta.remove(); });
   }
 
+  function addHeroSocials() {
+    var portrait = document.querySelector(".facilitator-portrait");
+    if (!portrait) return;
+    portrait.querySelectorAll(".facilitator-hero-socials").forEach(function (nav) { nav.remove(); });
+    var nav = document.createElement("nav");
+    nav.className = "facilitator-hero-socials";
+    nav.setAttribute("aria-label", isEnglish ? "Facilitator profiles" : "Профили фасилитатора");
+    nav.innerHTML = data.socials.map(function (social) {
+      return '<a href="' + social[1] + '" target="_blank" rel="noreferrer">' + social[0] + '</a>';
+    }).join("");
+    portrait.appendChild(nav);
+  }
+
   addClients();
+  addHeroSocials();
   addConversion();
 }());
