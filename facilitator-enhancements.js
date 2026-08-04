@@ -44,10 +44,12 @@
       socials: [["LinkedIn", "https://ru.linkedin.com/in/%D0%B5%D0%BB%D0%B5%D0%BD%D0%B0-%D0%BB%D0%B5%D0%BD%D1%81%D1%83-a6209b41"], ["Telegram", "https://t.me/lensu"], ["Profile", "https://synchronize.ru/elena-lensu"]]
     },
     max: {
-      companiesRu: [["Avito", "AVITO", "avito"], ["Яндекс", "ЯНДЕКС", "yandex"], ["МТС", "МТС", "mts"], ["Ростелеком", "РОСТЕЛЕКОМ", "rostelecom"], ["QIWI", "QIWI", "qiwi"], ["KROK", "KROK", "krok"], ["PandaDoc", "PANDADOC", "pandadoc"]],
-      companiesEn: [["Avito", "AVITO", "avito"], ["Yandex", "YANDEX", "yandex"], ["MTS", "MTS", "mts"], ["Rostelecom", "ROSTELECOM", "rostelecom"], ["QIWI", "QIWI", "qiwi"], ["KROK", "KROK", "krok"], ["PandaDoc", "PANDADOC", "pandadoc"]],
-      noteRu: "Компании, чьи сотрудники участвовали в образовательных и фасилитационных программах deep mind. deep mind consulting — собственная компания Максима Родина, а не клиентский логотип.",
-      noteEn: "Companies whose employees took part in deep mind’s education and facilitation programs. deep mind consulting is Max Rodin’s own company, not a client logo.",
+      companiesRu: [["Avito", "AVITO", "avito"], ["Яндекс", "ЯНДЕКС", "yandex"], ["МТС", "МТС", "mts"], ["Ростелеком", "РОСТЕЛЕКОМ", "rostelecom"], ["QIWI", "QIWI", "qiwi"], ["KROK", "KROK", "krok"], ["PandaDoc", "PANDADOC", "pandadoc"], ["СберМаркет", "СБЕРМАРКЕТ", "sbermarket"]],
+      companiesEn: [["Avito", "AVITO", "avito"], ["Yandex", "YANDEX", "yandex"], ["MTS", "MTS", "mts"], ["Rostelecom", "ROSTELECOM", "rostelecom"], ["QIWI", "QIWI", "qiwi"], ["KROK", "KROK", "krok"], ["PandaDoc", "PANDADOC", "pandadoc"], ["SberMarket", "SBERMARKET", "sbermarket"]],
+      caseRu: "Публичный кейс Avito / Less Stress: 4-недельная программа для C-level, руководителей групп и специалистов. В формате были общие занятия, поддержка в чате и ежедневные практики по 15 минут. В кейсе deep mind зафиксированы снижение психоэмоционального напряжения на 15%, рост ощущения себя отдохнувшим после сна на 38% и внедрение практик у 90% участников.",
+      caseEn: "Public Avito / Less Stress case: a four-week program for C-level leaders, team managers, and specialists. It combined group sessions, chat support, and 15-minute daily practices. The case reports a 15% reduction in psycho-emotional tension, a 38% increase in feeling rested after sleep, and 90% of participants adopting the practices.",
+      noteRu: "Компании и команды, участвовавшие в образовательных, wellbeing- и фасилитационных программах deep mind. deep mind consulting — собственная компания Максима Родина, а не клиентский логотип.",
+      noteEn: "Companies and teams that took part in deep mind’s education, wellbeing, and facilitation programs. deep mind consulting is Max Rodin’s own company, not a client logo.",
       socials: [["LinkedIn", "https://www.linkedin.com/in/max-rodin-14115a79"], ["Telegram канал", "https://t.me/mindfulleadersrussia"], ["deep mind", "https://deepmindworld.vercel.app/"]]
     }
   }[key];
@@ -61,9 +63,10 @@
     var title = isEnglish ? "Clients" : "Клиенты";
     var items = isEnglish ? data.companiesEn : data.companiesRu;
     var note = isEnglish ? data.noteEn : data.noteRu;
+    var clientCase = isEnglish ? data.caseEn : data.caseRu;
     section.innerHTML = '<div class="facilitator-section"><h2>' + title + '</h2><div class="facilitator-section__content"><ul class="facilitator-clients__list">' + items.map(function (item) {
       return '<li class="facilitator-logo facilitator-logo--' + item[2] + '" aria-label="' + item[0] + '"><span>' + item[1] + '</span><small>' + item[0] + '</small></li>';
-    }).join("") + '</ul><p class="facilitator-clients__note">' + note + '</p></div></div>';
+    }).join("") + '</ul><div class="facilitator-client-case"><p class="facilitator-label">' + (isEnglish ? "Selected case" : "Публичный кейс") + '</p><p>' + clientCase + '</p></div><p class="facilitator-clients__note">' + note + '</p></div></div>';
     var sections = Array.from(document.querySelectorAll(".facilitator-section"));
     var formatsSection = sections.find(function (candidate) {
       var heading = candidate.querySelector(":scope > h2");
