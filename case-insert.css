@@ -420,22 +420,87 @@
   line-height: 1.28;
 }
 
+.rp-facilitators__carousel {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) 44px;
+  align-items: center;
+  gap: 14px;
+}
+
+.rp-facilitators__viewport {
+  min-width: 0;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.rp-facilitators__viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.rp-facilitators__track {
+  display: flex;
+  gap: 14px;
+  width: max-content;
+  padding: 2px 1px 4px;
+}
+
 .rp-facilitator-card {
   display: grid;
-  grid-template-columns: 1fr;
+  flex: 0 0 min(510px, calc((100vw - 140px) / 2));
+  grid-template-columns: minmax(180px, 0.75fr) minmax(0, 1.25fr);
+  max-width: 510px;
+  scroll-snap-align: center;
   border: 1px solid rgba(0, 0, 0, 0.12);
   background: #f3dace;
 }
 
-.rp-facilitators__grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
+.rp-facilitators__arrow {
+  display: inline-flex;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  background: transparent;
+  color: #17120f;
+  cursor: pointer;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px;
+  line-height: 1;
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.rp-facilitators__arrow:hover {
+  background: #17120f;
+  color: #f3dace;
+}
+
+.rp-facilitators__pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.rp-facilitators__dot {
+  width: 7px;
+  height: 7px;
+  padding: 0;
+  border: 1px solid rgba(23, 18, 15, 0.48);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+
+.rp-facilitators__dot.is-active {
+  background: #17120f;
 }
 
 .rp-facilitator-card__photo {
   display: block;
-  height: 220px;
+  min-height: 300px;
   overflow: hidden;
   background: #2f241e;
 }
@@ -444,7 +509,7 @@
   display: block;
   width: 100%;
   height: 100%;
-  height: 220px;
+  min-height: 300px;
   object-fit: cover;
   object-position: center 20%;
   filter: saturate(0.92);
@@ -635,8 +700,22 @@
     grid-template-columns: 1fr;
   }
 
-  .rp-facilitators__grid {
-    grid-template-columns: 1fr;
+  .rp-facilitators__carousel {
+    grid-template-columns: 32px minmax(0, 1fr) 32px;
+    gap: 8px;
+  }
+
+  .rp-facilitators__arrow {
+    width: 32px;
+    height: 40px;
+  }
+
+  .rp-facilitators__track {
+    gap: 10px;
+  }
+
+  .rp-facilitator-card {
+    flex-basis: 86vw;
   }
 
   .rp-facilitator-card__photo,

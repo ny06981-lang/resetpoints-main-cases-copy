@@ -104,13 +104,13 @@
   const facilitatorCopy = isRu
     ? {
         label: "Ведущие и фасилитаторы",
-        title: "Люди, которые удерживают смысл и живой контакт",
+        title: "Люди, которые помогают команде думать и действовать вместе",
         intro: "Подбираем ведущего под задачу команды, уровень разговора и нужное состояние группы.",
         profile: "Открыть профиль",
       }
     : {
         label: "Facilitators and hosts",
-        title: "People who hold the meaning and the human connection",
+        title: "People who help teams think and act together",
         intro: "We match the right facilitator to the team’s challenge, conversation, and desired energy.",
         profile: "Open profile",
       };
@@ -406,12 +406,15 @@
           </div>
           <p class="rp-facilitators__intro">${facilitatorCopy.intro}</p>
         </div>
-        <div class="rp-facilitators__grid">
-          ${facilitators
+        <div class="rp-facilitators__carousel" data-facilitator-carousel>
+          <button class="rp-facilitators__arrow rp-facilitators__arrow--prev" type="button" data-facilitator-prev aria-label="${isRu ? "Предыдущий ведущий" : "Previous facilitator"}">&#8592;</button>
+          <div class="rp-facilitators__viewport" data-facilitator-viewport>
+            <div class="rp-facilitators__track" data-facilitator-track>
+              ${facilitators
             .map((item, index) => {
               const href = `${root}${isRu ? "ru/" : ""}facilitators/${item.slug}/`;
               return `
-                <article class="rp-facilitator-card">
+                <article class="rp-facilitator-card" data-facilitator-slide="${index}">
                   <a class="rp-facilitator-card__photo" href="${href}" aria-label="${facilitatorCopy.profile}: ${item.name}">
                     <img src="${root}facilitator-assets/${item.image}" alt="${item.alt}" loading="lazy" />
                   </a>
@@ -430,11 +433,40 @@
               `;
             })
             .join("")}
+            </div>
+          </div>
+          <button class="rp-facilitators__arrow rp-facilitators__arrow--next" type="button" data-facilitator-next aria-label="${isRu ? "Следующий ведущий" : "Next facilitator"}">&#8594;</button>
+        </div>
+        <div class="rp-facilitators__pagination" data-facilitator-pagination aria-label="${isRu ? "Навигация по ведущим" : "Facilitator navigation"}">
+          ${facilitators.map((item, index) => `<button type="button" class="rp-facilitators__dot${index === 0 ? " is-active" : ""}" data-facilitator-dot="${index}" aria-label="${isRu ? "Открыть профиль " : "Open profile "}${item.name}" aria-current="${index === 0 ? "true" : "false"}"></button>`).join("")}
         </div>
       </div>
     `;
 
     countriesSection.insertAdjacentElement("afterend", section);
+
+    const viewport = section.querySelector("[data-facilitator-viewport]");
+    const slides = Array.from(section.querySelectorAll("[data-facilitator-slide]"));
+    const dots = Array.from(section.querySelectorAll("[data-facilitator-dot]"));
+    const prev = section.querySelector("[data-facilitator-prev]");
+    const next = section.querySelector("[data-facilitator-next]");
+    const setActive = () => {
+      const center = viewport.scrollLeft + viewport.clientWidth / 2;
+      let active = 0;
+      slides.forEach((slide, index) => {
+        if (Math.abs(slide.offsetLeft + slide.offsetWidth / 2 - center) < Math.abs(slides[active].offsetLeft + slides[active].offsetWidth / 2 - center)) active = index;
+      });
+      dots.forEach((dot, index) => {
+        dot.classList.toggle("is-active", index === active);
+        dot.setAttribute("aria-current", index === active ? "true" : "false");
+      });
+    };
+    const move = (direction) => viewport.scrollBy({ left: direction * viewport.clientWidth * 0.88, behavior: "smooth" });
+    prev.addEventListener("click", () => move(-1));
+    next.addEventListener("click", () => move(1));
+    dots.forEach((dot, index) => dot.addEventListener("click", () => slides[index].scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" })));
+    viewport.addEventListener("scroll", setActive, { passive: true });
+    setActive();
     return true;
   }
 
