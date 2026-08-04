@@ -32,23 +32,23 @@
     irina: {
       companiesRu: [["Kokoc Group", "KOKOC", "kokoc"], ["LinguaLeo", "LinguaLeo", "lingua"], ["Groupon", "GROUPON", "groupon"], ["Rambler", "Rambler", "rambler"], ["E-promo", "E-PROMO", "epromo"], ["Сколково", "СКОЛКОВО", "skolkovo"]],
       companiesEn: [["Kokoc Group", "KOKOC", "kokoc"], ["LinguaLeo", "LinguaLeo", "lingua"], ["Groupon", "GROUPON", "groupon"], ["Rambler", "Rambler", "rambler"], ["E-promo", "E-PROMO", "epromo"], ["Skolkovo", "SKOLKOVO", "skolkovo"]],
-      noteRu: "Публично упомянутые компании и профессиональный контекст Ирины. Это не перечень закрытых клиентских кейсов: конкретные названия проектов раскрываются только с разрешения заказчиков.",
-      noteEn: "Publicly mentioned companies and professional context. This is not a list of confidential client cases: specific project names are shared only with client permission.",
+      noteRu: "Компании и типы команд, с которыми Ирина работала в стратегических и управленческих форматах. Конкретные проекты раскрываются только с разрешения заказчиков.",
+      noteEn: "Companies and team contexts Irina has worked with in strategy and leadership formats. Specific projects are shared only with client permission.",
       socials: [["LinkedIn", "https://www.linkedin.com/in/irinashashkina/"], ["Telegram", "https://t.me/ishashkina"], ["Channel", "https://t.me/ShashkinaIrina"]]
     },
     elena: {
       companiesRu: [["Pravo.ru / Pravo.Tech", "Pravo.ru", "pravo"], ["Rocket10", "ROCKET10", "rocket"], ["OTUS", "OTUS", "otus"], ["Нетология", "НЕТОЛОГИЯ", "netology"], ["Skillbox", "SKILLBOX", "skillbox"], ["Topcareer", "TOPCAREER", "topcareer"]],
       companiesEn: [["Pravo.ru / Pravo.Tech", "Pravo.ru", "pravo"], ["Rocket10", "ROCKET10", "rocket"], ["OTUS", "OTUS", "otus"], ["Netology", "NETOLOGY", "netology"], ["Skillbox", "SKILLBOX", "skillbox"], ["Topcareer", "TOPCAREER", "topcareer"]],
-      noteRu: "Компании и образовательные площадки из профессионального опыта Елены: роли HRD, бизнес-консалтинг и авторские программы.",
-      noteEn: "Companies and education platforms from Elena’s professional experience across HR leadership, business consulting, and teaching.",
+      noteRu: "Компании и образовательные платформы, с которыми Елена работала в HR, консалтинге и программах развития команд.",
+      noteEn: "Companies and education platforms Elena has worked with across HR leadership, consulting, and team development programs.",
       socials: [["LinkedIn", "https://ru.linkedin.com/in/%D0%B5%D0%BB%D0%B5%D0%BD%D0%B0-%D0%BB%D0%B5%D0%BD%D1%81%D1%83-a6209b41"], ["Telegram", "https://t.me/lensu"], ["Profile", "https://synchronize.ru/elena-lensu"]]
     },
     max: {
-      companiesRu: [["Яндекс", "ЯНДЕКС", "yandex"], ["deep mind", "deep mind", "deepmind"], ["Pink Elephant Group", "PINK ELEPHANT", "pink"]],
-      companiesEn: [["Yandex", "YANDEX", "yandex"], ["deep mind", "deep mind", "deepmind"], ["Pink Elephant Group", "PINK ELEPHANT", "pink"]],
-      noteRu: "Публично упомянутые проекты и профессиональный контекст Макса. Это не закрытый список корпоративных клиентов.",
-      noteEn: "Publicly mentioned projects and professional context. This is not a list of confidential corporate clients.",
-      socials: [["LinkedIn", "https://www.linkedin.com/in/max-rodin-14115a79"], ["Telegram", "https://t.me/mindfulleadersrussia"], ["deep mind", "https://deepmindworld.vercel.app"]]
+      companiesRu: [["Avito", "AVITO", "avito"], ["Яндекс", "ЯНДЕКС", "yandex"], ["МТС", "МТС", "mts"], ["Ростелеком", "РОСТЕЛЕКОМ", "rostelecom"], ["QIWI", "QIWI", "qiwi"], ["KROK", "KROK", "krok"], ["PandaDoc", "PANDADOC", "pandadoc"]],
+      companiesEn: [["Avito", "AVITO", "avito"], ["Yandex", "YANDEX", "yandex"], ["MTS", "MTS", "mts"], ["Rostelecom", "ROSTELECOM", "rostelecom"], ["QIWI", "QIWI", "qiwi"], ["KROK", "KROK", "krok"], ["PandaDoc", "PANDADOC", "pandadoc"]],
+      noteRu: "Компании, чьи сотрудники участвовали в образовательных и фасилитационных программах deep mind. deep mind consulting — собственная компания Максима Родина, а не клиентский логотип.",
+      noteEn: "Companies whose employees took part in deep mind’s education and facilitation programs. deep mind consulting is Max Rodin’s own company, not a client logo.",
+      socials: [["LinkedIn", "https://www.linkedin.com/in/max-rodin-14115a79"], ["Telegram", "https://t.me/mindfulleadersrussia"], ["deep mind consulting", "https://deepmindworld.vercel.app"]]
     }
   }[key];
 
@@ -58,7 +58,7 @@
     document.querySelectorAll(".facilitator-clients").forEach(function (section) { section.remove(); });
     var section = document.createElement("section");
     section.className = "facilitator-clients";
-    var title = isEnglish ? "Selected experience" : key === "dmitry" ? "С кем работал" : key === "max" ? "Публичный контекст" : "Профессиональный контекст";
+    var title = isEnglish ? "Clients" : "Клиенты";
     var items = isEnglish ? data.companiesEn : data.companiesRu;
     var note = isEnglish ? data.noteEn : data.noteRu;
     section.innerHTML = '<div class="facilitator-section"><h2>' + title + '</h2><div class="facilitator-section__content"><ul class="facilitator-clients__list">' + items.map(function (item) {

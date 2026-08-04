@@ -62,8 +62,8 @@
   align-items: end;
   margin: 0 32px;
   padding: 88px 32px 72px;
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--paper-soft);
+  color: var(--ink);
 }
 
 .facilitator-eyebrow,
@@ -74,7 +74,7 @@
 
 .facilitator-hero .facilitator-eyebrow,
 .facilitator-hero .facilitator-label {
-  color: rgba(243, 218, 206, 0.62);
+  color: rgba(23, 18, 15, 0.56);
 }
 
 .facilitator-hero h1 {
@@ -85,7 +85,7 @@
   font-weight: 500;
   letter-spacing: 0;
   line-height: 0.92;
-  color: var(--paper);
+  color: var(--ink);
 }
 
 .facilitator-lead {
@@ -98,7 +98,7 @@
 }
 
 .facilitator-hero .facilitator-lead {
-  color: rgba(243, 218, 206, 0.82);
+  color: var(--muted);
 }
 
 .facilitator-portrait {
@@ -138,9 +138,9 @@
 }
 
 .facilitator-hero .facilitator-meta span {
-  border-color: rgba(243, 218, 206, 0.28);
-  background: rgba(243, 218, 206, 0.08);
-  color: var(--paper);
+  border-color: var(--line);
+  background: rgba(255, 246, 231, 0.38);
+  color: var(--ink);
 }
 
 .facilitator-band {
@@ -234,13 +234,13 @@
 }
 
 .facilitator-result {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--paper-soft);
+  color: var(--ink);
 }
 
 .facilitator-result .facilitator-label,
 .facilitator-result p {
-  color: rgba(243, 218, 206, 0.68);
+  color: var(--muted);
 }
 
 .facilitator-clients {
@@ -297,31 +297,42 @@
   text-transform: uppercase;
 }
 
-.facilitator-logo--leroy { background: #e9f0df; }
-.facilitator-logo--x5 { background: #f6e9be; }
-.facilitator-logo--rosneft { background: #f2d4cf; }
+.facilitator-logo,
+.facilitator-logo--leroy,
+.facilitator-logo--x5,
+.facilitator-logo--rosneft,
 .facilitator-logo--ascott,
-.facilitator-logo--kempinski { background: #e8e0d6; }
-.facilitator-logo--rushydro { background: #dfeef0; }
-.facilitator-logo--polyana { background: #e2eadb; }
-.facilitator-logo--gold { background: #f4e3ad; }
+.facilitator-logo--kempinski,
+.facilitator-logo--rushydro,
+.facilitator-logo--polyana,
+.facilitator-logo--gold,
 .facilitator-logo--samara,
-.facilitator-logo--business { background: #e4e1ed; }
+.facilitator-logo--business,
 .facilitator-logo--kokoc,
 .facilitator-logo--lingua,
 .facilitator-logo--groupon,
 .facilitator-logo--rambler,
 .facilitator-logo--epromo,
-.facilitator-logo--skolkovo { background: #eee3dc; }
+.facilitator-logo--skolkovo,
 .facilitator-logo--pravo,
-.facilitator-logo--rocket { background: #e4ece7; }
+.facilitator-logo--rocket,
 .facilitator-logo--otus,
 .facilitator-logo--netology,
 .facilitator-logo--skillbox,
-.facilitator-logo--topcareer { background: #e8e1ee; }
-.facilitator-logo--yandex { background: #f2d9cf; }
-.facilitator-logo--deepmind { background: #dfe9ed; }
-.facilitator-logo--pink { background: #eadfe8; }
+.facilitator-logo--topcareer,
+.facilitator-logo--yandex,
+.facilitator-logo--deepmind,
+.facilitator-logo--pink,
+.facilitator-logo--avito,
+.facilitator-logo--mts,
+.facilitator-logo--rostelecom,
+.facilitator-logo--qiwi,
+.facilitator-logo--krok,
+.facilitator-logo--pandadoc {
+  background: #f8f4f0;
+  color: var(--ink);
+  border: 1px solid rgba(23, 18, 15, 0.16);
+}
 
 .facilitator-logo:hover {
   transform: translateY(-2px);
@@ -411,11 +422,11 @@
 }
 
 .facilitator-result h2 {
-  color: var(--paper);
+  color: var(--ink);
 }
 
 .facilitator-result .facilitator-section__content > p {
-  color: rgba(243, 218, 206, 0.88);
+  color: var(--muted);
 }
 
 .facilitator-contact {
@@ -423,7 +434,7 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 20px;
-  border-top: 1px solid rgba(243, 218, 206, 0.22);
+  border-top: 1px solid var(--line);
   margin-top: 28px;
   padding-top: 20px;
 }
@@ -442,7 +453,7 @@
 }
 
 .facilitator-contact a {
-  color: var(--paper);
+  color: var(--ink);
   text-decoration: none;
   opacity: 0.74;
 }

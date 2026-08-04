@@ -150,12 +150,12 @@
         {
           name: "Макс Родин",
           slug: "max-rodin",
-          role: "Фасилитатор трансформации · основатель deep mind",
+          role: "Фасилитатор трансформации · основатель deep mind consulting",
           description: "Работает с состоянием, осознанностью и групповыми процессами, помогая командам действовать в сложном меняющемся мире.",
           tags: ["Теория U", "Осознанность", "Трансформация команд"],
-          stats: ["Founder deep mind", "Групповые процессы", "B2B и B2C"],
+          stats: ["Founder deep mind consulting", "Групповые процессы", "B2B и B2C"],
           image: "max-rodin.jpg",
-          alt: "Макс Родин, фасилитатор трансформации и основатель deep mind",
+          alt: "Макс Родин, фасилитатор трансформации и основатель deep mind consulting",
         },
       ]
     : [
@@ -192,12 +192,12 @@
         {
           name: "Max Rodin",
           slug: "max-rodin",
-          role: "Transformation facilitator · founder of deep mind",
+          role: "Transformation facilitator · founder of deep mind consulting",
           description: "Works with presence, awareness, and group processes to help teams act in a complex and changing world.",
           tags: ["Theory U", "Awareness", "Team transformation"],
-          stats: ["Founder, deep mind", "Group processes", "B2B and B2C"],
+          stats: ["Founder, deep mind consulting", "Group processes", "B2B and B2C"],
           image: "max-rodin.jpg",
-          alt: "Max Rodin, transformation facilitator and founder of deep mind",
+          alt: "Max Rodin, transformation facilitator and founder of deep mind consulting",
         },
       ];
 
