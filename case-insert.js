@@ -1,11 +1,12 @@
 (function () {
-  const isRu = window.location.pathname.includes("/ru") || !window.location.pathname.includes("/en");
+  const isRu = /\/ru(?:\/|$)/.test(window.location.pathname);
   const repoPrefix = window.location.pathname.includes("/resetpoints-main-cases-copy")
     ? "/resetpoints-main-cases-copy/"
     : "/";
   const root = repoPrefix.endsWith("/") ? repoPrefix : `${repoPrefix}/`;
-  const bankCaseUrl = `${root}${isRu ? "ru/" : ""}cases/bank-offsite-summer-2026/`;
-  const fintechCaseUrl = `${root}${isRu ? "ru/" : ""}cases/fintech-strategy-retreat-georgia/`;
+  const languageRoot = isRu ? "ru/" : "en/";
+  const bankCaseUrl = `${root}${languageRoot}cases/bank-offsite-summer-2026/`;
+  const fintechCaseUrl = `${root}${languageRoot}cases/fintech-strategy-retreat-georgia/`;
   const asset = (name) => `${root}case-assets/${name}`;
 
   const copy = isRu
@@ -412,7 +413,7 @@
             <div class="rp-facilitators__track" data-facilitator-track>
               ${facilitators
             .map((item, index) => {
-              const href = `${root}${isRu ? "ru/" : ""}facilitators/${item.slug}/`;
+              const href = `${root}${languageRoot}facilitators/${item.slug}/`;
               return `
                 <article class="rp-facilitator-card" data-facilitator-slide="${index}">
                   <a class="rp-facilitator-card__photo" href="${href}" aria-label="${facilitatorCopy.profile}: ${item.name}">

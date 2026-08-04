@@ -1,2 +1,4 @@
 /ru/facilitators/max-rodin-deepmind-preview/ /ru/facilitators/max-rodin/ 301
-/ /ru 302
+/ /en/ 302
+/cases/* /en/cases/:splat 301
+/facilitators/* /en/facilitators/:splat 301
