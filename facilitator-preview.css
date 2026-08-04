@@ -128,14 +128,16 @@ a { color: inherit; }
   right: 18px;
   bottom: 18px;
   display: grid;
-  width: 58px;
-  height: 58px;
+  width: 72px;
+  height: 72px;
   place-items: center;
   border-radius: 50%;
   background: var(--dm-accent);
   color: var(--dm-card);
-  font-size: 22px;
+  font-size: 9px;
   font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .dm-portrait figcaption {
@@ -573,6 +575,7 @@ a { color: inherit; }
   .dm-hero h1 { font-size: clamp(54px, 16vw, 78px); }
   .dm-lead { font-size: 21px; }
   .dm-portrait { max-width: 460px; }
+  .dm-portrait__mark { width: 64px; height: 64px; font-size: 8px; }
   .dm-hero-cta { grid-template-columns: 1fr; gap: 20px; padding: 24px 16px; }
   .dm-hero-cta h2 { font-size: 36px; }
   .dm-hero-cta__action { align-items: flex-start; flex-direction: column; }
