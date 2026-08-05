@@ -10,8 +10,8 @@
           ["20+ лет в digital и people-направлениях", "Роли CEO, CMO, COO и управляющего партнёра; работа с ростом, командами и трансформациями."],
           ["Системная работа с собственниками и топ-командами", "В независимой практике помогает принимать решения в моменты перехода, когда прежняя логика бизнеса больше не работает."]
         ],
-        clientsTitle: "Знаковый опыт",
-        clientsIntro: "Компании и профессиональные среды, в которых Ирина занимала управленческие роли и развивала свою практику. Это не список клиентских логотипов.",
+        clientsTitle: "Клиенты",
+        clientsIntro: "Компании, с которыми связан профессиональный опыт Ирины в управленческих, стратегических и командных задачах.",
         logos: [["LinguaLeo", "LINGUALEO"], ["Groupon", "GROUPON"], ["Rambler", "RAMBLER"], ["Kokoc Group", "KOKOC GROUP"], ["E-promo", "E-PROMO"], ["Московская школа управления СКОЛКОВО", "SKOLKOVO"]]
       }
     : {
@@ -21,8 +21,8 @@
           ["20+ years across digital and people leadership", "CEO, CMO, COO, and managing partner roles across growth, teams, and transformation."],
           ["Systemic work with founders and leadership teams", "In independent practice, she helps leaders make decisions at moments of transition, when the old business logic no longer works."]
         ],
-        clientsTitle: "Selected experience",
-        clientsIntro: "Companies and professional environments where Irina held leadership roles and developed her practice. This is not a list of facilitation clients.",
+        clientsTitle: "Clients",
+        clientsIntro: "Companies connected to Irina's professional experience across leadership, strategy, and team work.",
         logos: [["LinguaLeo", "LINGUALEO"], ["Groupon", "GROUPON"], ["Rambler", "RAMBLER"], ["Kokoc Group", "KOKOC GROUP"], ["E-promo", "E-PROMO"], ["Moscow School of Management SKOLKOVO", "SKOLKOVO"]]
       };
 
