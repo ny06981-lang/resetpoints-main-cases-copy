@@ -83,6 +83,42 @@
   object-position: center 20%;
 }
 
+/* The strategy map stays alive without making the surrounding section feel busy. */
+.rp-why-motion {
+  --rp-pointer-x: 0px;
+  --rp-pointer-y: 0px;
+  --rp-pointer-rotate: 0deg;
+  transform: translate3d(var(--rp-pointer-x), var(--rp-pointer-y), 0) rotate(var(--rp-pointer-rotate));
+  transform-origin: center;
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.rp-why-motion__line {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: rp-why-line-drift 7s ease-in-out infinite alternate;
+}
+
+.rp-why-motion__line--1 {
+  animation-duration: 8.5s;
+  animation-delay: -1.5s;
+}
+
+@keyframes rp-why-line-drift {
+  0% { transform: translate3d(-2px, 2px, 0) rotate(-0.7deg); }
+  100% { transform: translate3d(2px, -2px, 0) rotate(0.7deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rp-why-motion,
+  .rp-why-motion__line {
+    animation: none;
+    transition: none;
+    transform: none;
+  }
+}
+
 @media (max-width: 640px) {
   .rp-free-consult {
     max-width: 260px;
