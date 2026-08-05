@@ -1,0 +1,2 @@
+html { scroll-behavior: smooth; }
+#root [id] { scroll-margin-top: 96px; }
