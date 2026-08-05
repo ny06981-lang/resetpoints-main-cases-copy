@@ -4,6 +4,11 @@
   var slug = path.indexOf("dmitry-riman") > -1 ? "dmitry" : path.indexOf("irina-shashkina") > -1 ? "irina" : path.indexOf("elena-lensu") > -1 ? "elena" : path.indexOf("max-rodin") > -1 ? "max" : "";
   var root = isRu ? "../../../../" : "../../../";
   var profileRoot = root + (isRu ? "ru/" : "en/");
+  if (slug === "irina") {
+    var irinaScript = document.createElement("script");
+    irinaScript.src = root + "irina-profile.js?v=20260808-1";
+    document.head.appendChild(irinaScript);
+  }
 
   var profiles = {
     dmitry: {
