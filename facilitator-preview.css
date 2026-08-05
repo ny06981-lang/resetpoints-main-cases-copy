@@ -264,24 +264,29 @@ a { color: inherit; }
 
 .dm-section {
   display: grid;
-  grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1fr);
   gap: clamp(32px, 7vw, 104px);
   max-width: 1240px;
   margin: 0 auto;
   padding: 78px 28px;
 }
 
+.dm-section > * {
+  min-width: 0;
+}
+
 .dm-section h2 {
-  max-width: 500px;
+  max-width: 100%;
   margin: 0;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(38px, 5vw, 68px);
+  font-size: clamp(36px, 4.2vw, 58px);
   font-weight: 400;
   letter-spacing: 0;
   line-height: 0.94;
   overflow-wrap: normal;
   word-break: normal;
   hyphens: none;
+  text-wrap: balance;
 }
 
 .dm-section__content { max-width: 720px; }
