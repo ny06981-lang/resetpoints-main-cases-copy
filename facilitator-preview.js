@@ -13,7 +13,7 @@
       caption: ["Организационный консультант · фасилитатор стратегических сессий", "Organizational consultant · strategy session facilitator"],
       summary: ["Стратегия, командные решения и управленческий диалог", "Strategy, team decisions, and leadership dialogue"],
       proofsTitle: ["Подтверждённый опыт", "Selected experience"],
-      proofs: [["150+ стратегических и командных сессий", "150+ strategy and team sessions", "Работа через DreamTeam с управленческими командами и собственниками.", "Work through DreamTeam with leadership teams and business owners."], ["Leroy Merlin, X5 Retail Group, Роснефть, Kempinski", "Leroy Merlin, X5 Retail Group, Rosneft, Kempinski", "Публично указанные организации из портфолио DreamTeam.", "Organizations publicly listed in the DreamTeam portfolio."]],
+      proofs: [["150+ стратегических и командных сессий", "150+ strategy and team sessions", "Дмитрий запустил Центр развития бизнеса DreamTeam и провёл более 20 сессий для топ-команд и собственников крупных компаний.", "Dmitry launched the DreamTeam Business Development Centre and has led more than 20 sessions for leadership teams and owners at major companies."]],
       meta: [["Стратегические сессии", "Strategy sessions"], ["Командная работа", "Team work"], ["Коучинг руководителей", "Executive coaching"]],
       needTitle: ["Когда команде нужно договориться о важном", "When a team needs to align on what matters"],
       needIntro: ["Когда у сильных людей разные приоритеты, а следующий шаг требует не ещё одного обсуждения, а общей картины и решения.", "When strong people hold different priorities and the next step requires more than another discussion: a shared picture and a decision."],
@@ -21,6 +21,7 @@
       formatsTitle: ["Форматы работы", "Working formats"],
       formats: [["Стратегическая сессия", "Strategy session", "Собрать общую картину, выбрать приоритеты и перевести стратегию в решения.", "Build a shared picture, choose priorities, and turn strategy into decisions."], ["Командная сессия", "Team session", "Прояснить смыслы, роли и способы взаимодействия, которые действительно работают.", "Clarify meaning, roles, and ways of working that hold up in practice."], ["Коучинг руководителей", "Executive coaching", "Индивидуальная работа с собственниками и руководителями в сложных управленческих ситуациях.", "One-to-one work with owners and leaders in complex management situations."], ["Сопровождение изменений", "Change support", "Помочь команде удержать новые договорённости и встроить их в ежедневную работу.", "Help a team keep new agreements alive in everyday work."]],
       clientsTitle: ["Клиенты", "Clients"], clientIntro: ["Более 150 стратегических и командных сессий в DreamTeam. В подборке — организации, публично указанные командой.", "150+ strategy and team sessions through DreamTeam. The selection includes organizations named publicly by the team."],
+      proofLogos: true, hideClients: true,
       clients: [["Leroy Merlin", "LEROY MERLIN"], ["X5 Retail Group", "X5"], ["Роснефть", "РОСНЕФТЬ"], ["Kempinski", "KEMPINSKI"], ["РусГидро", "РУСГИДРО"], ["Polyana Group", "POLYANA"], ["Самарская область", "САМАРА"], ["Бизнес-Гарант", "БИЗНЕС-ГАРАНТ"]],
       resultLabel: ["Подход", "Approach"], resultTitle: ["Смысл, бизнес и живое взаимодействие", "Meaning, business, and human connection"], result: ["Дмитрий соединяет опыт топ-менеджмента, организационного консалтинга, фасилитации и коучинга. В работе он удерживает одновременно задачу бизнеса и то, как люди реально думают, договариваются и действуют вместе.", "Dmitry combines top-management experience, organizational consulting, facilitation, and coaching. He holds the business task together with how people actually think, align, and act as a team."],
       socials: [["DreamTeam", "https://dream-team.pro/"], ["Telegram", "https://t.me/RimanDm"]]
@@ -93,6 +94,10 @@
   var formatsSection = document.querySelector(".dm-band + .dm-section");
   var proofSection = document.createElement("section");
   proofSection.className = "dm-section dm-proofs";
-  proofSection.innerHTML = '<h2>' + esc(t(profile.proofsTitle)) + '</h2><div class="dm-proof-grid">' + profile.proofs.map(function (item) { return '<article class="dm-proof"><p class="dm-eyebrow">' + esc(t([item[0], item[1]])) + '</p><p>' + esc(t([item[2], item[3]])) + '</p></article>'; }).join("") + '</div>';
+  proofSection.innerHTML = '<h2>' + esc(t(profile.proofsTitle)) + '</h2><div class="dm-proof-grid">' + profile.proofs.map(function (item) { return '<article class="dm-proof"><p class="dm-eyebrow">' + esc(t([item[0], item[1]])) + '</p><p>' + esc(t([item[2], item[3]])) + '</p>' + (profile.proofLogos ? '<div class="dm-logo-grid dm-proof-logo-grid" aria-label="' + (isRu ? "Компании из опыта DreamTeam" : "Companies from DreamTeam experience") + '">' + profile.clients.map(logo).join("") + '</div>' : '') + '</article>'; }).join("") + '</div>';
   formatsSection.insertAdjacentElement("beforebegin", proofSection);
+  if (profile.hideClients) {
+    var clientsSection = document.querySelector(".dm-clients");
+    if (clientsSection) clientsSection.remove();
+  }
 }());
