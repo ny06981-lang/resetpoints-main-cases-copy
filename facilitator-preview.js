@@ -6,7 +6,7 @@
   var profileRoot = root + (isRu ? "ru/" : "en/");
   if (slug === "irina") {
     var irinaScript = document.createElement("script");
-    irinaScript.src = root + "irina-profile.js?v=20260808-2";
+    irinaScript.src = root + "irina-profile.js?v=20260808-3";
     document.head.appendChild(irinaScript);
   }
 

@@ -12,7 +12,7 @@
         ],
         clientsTitle: "Клиенты",
         clientsIntro: "Компании, с которыми связан профессиональный опыт Ирины в управленческих, стратегических и командных задачах.",
-        logos: [["LinguaLeo", "LINGUALEO"], ["Groupon", "GROUPON"], ["Rambler", "RAMBLER"], ["Kokoc Group", "KOKOC GROUP"], ["E-promo", "E-PROMO"], ["Московская школа управления СКОЛКОВО", "SKOLKOVO"]]
+        logos: [["LinguaLeo", "LINGUALEO"], ["Groupon", "GROUPON"], ["Rambler", "RAMBLER"], ["Kokoc Group", "KOKOC GROUP", "https://www.linkedin.com/company/10512098/"], ["E-promo", "E-PROMO"], ["Московская школа управления СКОЛКОВО", "SKOLKOVO", "https://www.linkedin.com/school/206407/"], ["City Business School", "CITY BUSINESS SCHOOL", "https://www.linkedin.com/school/1188296/"]]
       }
     : {
         meta: ["20+ years in digital", "CEO / CMO / COO", "Strategic partner"],
@@ -23,7 +23,7 @@
         ],
         clientsTitle: "Clients",
         clientsIntro: "Companies connected to Irina's professional experience across leadership, strategy, and team work.",
-        logos: [["LinguaLeo", "LINGUALEO"], ["Groupon", "GROUPON"], ["Rambler", "RAMBLER"], ["Kokoc Group", "KOKOC GROUP"], ["E-promo", "E-PROMO"], ["Moscow School of Management SKOLKOVO", "SKOLKOVO"]]
+        logos: [["LinguaLeo", "LINGUALEO"], ["Groupon", "GROUPON"], ["Rambler", "RAMBLER"], ["Kokoc Group", "KOKOC GROUP", "https://www.linkedin.com/company/10512098/"], ["E-promo", "E-PROMO"], ["Moscow School of Management SKOLKOVO", "SKOLKOVO", "https://www.linkedin.com/school/206407/"], ["City Business School", "CITY BUSINESS SCHOOL", "https://www.linkedin.com/school/1188296/"]]
       };
 
   function escapeHtml(value) {
@@ -34,7 +34,9 @@
 
   function wordmark(item) {
     var size = item[1].length > 11 ? 22 : 28;
-    return '<div class="dm-logo" aria-label="' + escapeHtml(item[0]) + '"><svg class="dm-logo__wordmark" viewBox="0 0 220 48" role="img" aria-label="' + escapeHtml(item[0]) + '"><text x="0" y="32" font-size="' + size + '" font-family="Arial, Helvetica, sans-serif" font-weight="800" letter-spacing="1">' + escapeHtml(item[1]) + '</text></svg></div>';
+    var tag = item[2] ? '<a class="dm-logo" href="' + escapeHtml(item[2]) + '" target="_blank" rel="noreferrer" aria-label="' + escapeHtml(item[0]) + '">' : '<div class="dm-logo" aria-label="' + escapeHtml(item[0]) + '">';
+    var close = item[2] ? '</a>' : '</div>';
+    return tag + '<svg class="dm-logo__wordmark" viewBox="0 0 220 48" role="img" aria-label="' + escapeHtml(item[0]) + '"><text x="0" y="32" font-size="' + size + '" font-family="Arial, Helvetica, sans-serif" font-weight="800" letter-spacing="1">' + escapeHtml(item[1]) + '</text></svg>' + close;
   }
 
   function render() {

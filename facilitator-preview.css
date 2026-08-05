@@ -391,6 +391,7 @@ a { color: inherit; }
   min-height: 54px;
   place-items: center start;
   color: var(--dm-text);
+  text-decoration: none;
 }
 
 .dm-logo img {
