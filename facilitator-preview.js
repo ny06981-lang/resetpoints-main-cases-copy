@@ -4,6 +4,12 @@
   var slug = path.indexOf("dmitry-riman") > -1 ? "dmitry" : path.indexOf("irina-shashkina") > -1 ? "irina" : path.indexOf("elena-lensu") > -1 ? "elena" : path.indexOf("max-rodin") > -1 ? "max" : "";
   var root = isRu ? "../../../../" : "../../../";
   var profileRoot = root + (isRu ? "ru/" : "en/");
+  function removeProofSections() {
+    document.querySelectorAll(".dm-proofs").forEach(function (section) { section.remove(); });
+  }
+  var proofObserver = new MutationObserver(removeProofSections);
+  proofObserver.observe(document.documentElement, { childList: true, subtree: true });
+  removeProofSections();
   if (slug === "irina") {
     var irinaScript = document.createElement("script");
     irinaScript.src = root + "irina-profile.js?v=20260808-4";
