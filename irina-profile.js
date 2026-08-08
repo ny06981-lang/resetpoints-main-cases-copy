@@ -6,10 +6,7 @@
     ? {
         meta: ["20+ лет в digital", "CEO / CMO / COO", "Стратегический партнёр"],
         proofTitle: "Проверенный опыт",
-        proofs: [
-          ["20+ лет в digital и people-направлениях", "Роли CEO, CMO, COO и управляющего партнёра; работа с ростом, командами и трансформациями."],
-          ["Системная работа с собственниками и топ-командами", "В независимой практике помогает принимать решения в моменты перехода, когда прежняя логика бизнеса больше не работает."]
-        ],
+        proofs: [],
         clientsTitle: "Клиенты",
         clientsIntro: "Компании, с которыми связан профессиональный опыт Ирины в управленческих, стратегических и командных задачах.",
         logos: [["LinguaLeo", "LINGUALEO"], ["Groupon", "GROUPON"], ["Rambler", "RAMBLER"], ["Kokoc Group", "KOKOC GROUP", "https://www.linkedin.com/company/10512098/"], ["E-promo", "E-PROMO"], ["Московская школа управления СКОЛКОВО", "SKOLKOVO", "https://www.linkedin.com/school/206407/"], ["City Business School", "CITY BUSINESS SCHOOL", "https://www.linkedin.com/school/1188296/"]]
@@ -17,10 +14,7 @@
     : {
         meta: ["20+ years in digital", "CEO / CMO / COO", "Strategic partner"],
         proofTitle: "Selected experience",
-        proofs: [
-          ["20+ years across digital and people leadership", "CEO, CMO, COO, and managing partner roles across growth, teams, and transformation."],
-          ["Systemic work with founders and leadership teams", "In independent practice, she helps leaders make decisions at moments of transition, when the old business logic no longer works."]
-        ],
+        proofs: [],
         clientsTitle: "Clients",
         clientsIntro: "Companies connected to Irina's professional experience across leadership, strategy, and team work.",
         logos: [["LinguaLeo", "LINGUALEO"], ["Groupon", "GROUPON"], ["Rambler", "RAMBLER"], ["Kokoc Group", "KOKOC GROUP", "https://www.linkedin.com/company/10512098/"], ["E-promo", "E-PROMO"], ["Moscow School of Management SKOLKOVO", "SKOLKOVO", "https://www.linkedin.com/school/206407/"], ["City Business School", "CITY BUSINESS SCHOOL", "https://www.linkedin.com/school/1188296/"]]

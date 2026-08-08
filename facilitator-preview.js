@@ -6,7 +6,7 @@
   var profileRoot = root + (isRu ? "ru/" : "en/");
   if (slug === "irina") {
     var irinaScript = document.createElement("script");
-    irinaScript.src = root + "irina-profile.js?v=20260808-3";
+    irinaScript.src = root + "irina-profile.js?v=20260808-4";
     document.head.appendChild(irinaScript);
   }
 
@@ -68,16 +68,24 @@
 
   var profile = profiles;
   if (!profile) return;
+  if (slug === "dmitry") {
+    profile.proofs = [];
+    profile.lead = ["Организационный консультант и фасилитатор, который помогает управленческим командам договориться о важном и превратить разговор в следующий шаг. Запустил Центр развития бизнеса DreamTeam и провёл более 150 стратегических и командных сессий.", "An organizational consultant and facilitator who helps leadership teams align on what matters and turn a meaningful conversation into the next step. He launched the DreamTeam Business Development Centre and has led more than 150 strategy and team sessions."];
+    profile.summary = ["150+ стратегических и командных сессий для управленческих команд", "150+ strategy and team sessions for leadership teams"];
+  }
   if (slug === "max") {
     profile.summary = ["Осознанность, wellbeing и устойчивость команд в сложной реальности", "Awareness, wellbeing, and team resilience in complexity"];
     profile.proofsTitle = ["Подтверждённый опыт", "Selected experience"];
-    profile.proofs = [["Avito / Less Stress", "Avito / Less Stress", "Четырёхнедельная wellbeing-программа для C-level, руководителей групп и специалистов: общие занятия, чат и ежедневные практики.", "A four-week wellbeing program for C-level leaders, team leads, and specialists: group sessions, chat support, and daily practices."], ["Измеримый эффект программы", "Measured program impact", "В публичном кейсе deep mind: снижение психоэмоционального напряжения на 15% и внедрение практик у 90% участников.", "The public deep mind case reported a 15% reduction in emotional strain and practice adoption by 90% of participants."]];
+    profile.proofs = [];
+    profile.formats[0] = ["Less Stress", "Less Stress", "Четырёхнедельная wellbeing-программа для C-level, руководителей групп и специалистов: общие занятия, чат и ежедневные практики.", "A four-week wellbeing program for C-level leaders, team leads, and specialists: group sessions, chat support, and daily practices."];
+    profile.result = ["Макс соединяет практики осознанности, работу с состоянием и фасилитацию. В публичной программе Less Stress участники снизили психоэмоциональное напряжение на 15%, а 90% внедрили практики в повседневную жизнь.", "Max combines awareness practices, state work, and group process facilitation. In the public Less Stress program, participants reduced emotional strain by 15%, and 90% integrated the practices into everyday life."];
   }
   if (slug === "elena") {
     profile.proofs = [];
     profile.formats[2] = ["Development Lab", "Development Lab", "Семинедельная программа развития управленческого мышления через реальные рабочие ситуации.", "A seven-week program for developing management thinking through real work situations."];
     profile.clientIntro = ["Профессиональный контекст Елены — технологические компании и образовательные проекты.", "Elena's professional context includes technology companies and education projects."];
   }
+  if (slug === "irina") profile.proofs = [];
   function t(value) { return value[isRu ? 0 : 1]; }
   function esc(value) { return String(value).replace(/[&<>"']/g, function (character) { return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[character]; }); }
   function linkList(items) { return items.map(function (item) { return '<a href="' + esc(item[1]) + '" target="_blank" rel="noreferrer">' + esc(item[0]) + '</a>'; }).join(""); }
