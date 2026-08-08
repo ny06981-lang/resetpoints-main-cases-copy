@@ -73,6 +73,11 @@
     profile.proofsTitle = ["Подтверждённый опыт", "Selected experience"];
     profile.proofs = [["Avito / Less Stress", "Avito / Less Stress", "Четырёхнедельная wellbeing-программа для C-level, руководителей групп и специалистов: общие занятия, чат и ежедневные практики.", "A four-week wellbeing program for C-level leaders, team leads, and specialists: group sessions, chat support, and daily practices."], ["Измеримый эффект программы", "Measured program impact", "В публичном кейсе deep mind: снижение психоэмоционального напряжения на 15% и внедрение практик у 90% участников.", "The public deep mind case reported a 15% reduction in emotional strain and practice adoption by 90% of participants."]];
   }
+  if (slug === "elena") {
+    profile.proofs = [];
+    profile.formats[2] = ["Development Lab", "Development Lab", "Семинедельная программа развития управленческого мышления через реальные рабочие ситуации.", "A seven-week program for developing management thinking through real work situations."];
+    profile.clientIntro = ["Профессиональный контекст Елены — технологические компании и образовательные проекты.", "Elena's professional context includes technology companies and education projects."];
+  }
   function t(value) { return value[isRu ? 0 : 1]; }
   function esc(value) { return String(value).replace(/[&<>"']/g, function (character) { return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[character]; }); }
   function linkList(items) { return items.map(function (item) { return '<a href="' + esc(item[1]) + '" target="_blank" rel="noreferrer">' + esc(item[0]) + '</a>'; }).join(""); }
