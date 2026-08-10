@@ -2,12 +2,12 @@
   var isEnglish = window.location.pathname.indexOf("/en") === 0 || window.location.pathname === "/";
   var copy = isEnglish
     ? {
-        hero: "Plan your retreat",
+        hero: "Free consultation",
         note: "Free consultation - no obligation.",
         final: "Plan your retreat"
       }
     : {
-        hero: "Продумать выезд",
+        hero: "Бесплатная консультация",
         note: "Бесплатная консультация - без обязательств.",
         final: "Продумать выезд"
       };
