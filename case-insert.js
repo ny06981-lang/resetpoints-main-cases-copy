@@ -158,6 +158,16 @@
           image: "dmitry-riman.jpg",
           alt: "Дмитрий Риман, организационный консультант и фасилитатор",
         },
+        {
+          name: "Ajda Razdevšek",
+          slug: "ajda-razdevsek",
+          role: "Team dynamics consultant · founder of Equia",
+          description: "Помогает командам прояснять роли, ответственность, коммуникацию и общее направление через бизнес-психологию и практические договорённости.",
+          tags: ["Team dynamics", "Equia", "Business psychology"],
+          stats: ["English / Slovenian", "Equia modules", "Команды и спорт"],
+          image: "ajda-razdevsek.jpg",
+          alt: "Ajda Razdevšek, consultant по командной динамике и основательница Equia",
+        },
       ]
     : [
         {
@@ -199,6 +209,16 @@
           stats: ["20 years in business", "150+ sessions", "600+ coaching hours"],
           image: "dmitry-riman.jpg",
           alt: "Dmitry Riman, organizational consultant and facilitator",
+        },
+        {
+          name: "Ajda Razdevšek",
+          slug: "ajda-razdevsek",
+          role: "Team dynamics consultant · founder of Equia",
+          description: "Helps teams clarify roles, responsibilities, communication, and shared direction through business psychology and practical agreements.",
+          tags: ["Team dynamics", "Equia", "Business psychology"],
+          stats: ["English / Slovenian", "Equia modules", "Teams and sport"],
+          image: "ajda-razdevsek.jpg",
+          alt: "Ajda Razdevšek, team dynamics consultant and founder of Equia",
         },
       ];
 
@@ -464,7 +484,10 @@
     const move = (direction) => viewport.scrollBy({ left: direction * viewport.clientWidth * 0.88, behavior: "smooth" });
     prev.addEventListener("click", () => move(-1));
     next.addEventListener("click", () => move(1));
-    dots.forEach((dot, index) => dot.addEventListener("click", () => slides[index].scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" })));
+    dots.forEach((dot, index) => dot.addEventListener("click", () => {
+      const slide = slides[index];
+      viewport.scrollTo({ left: slide.offsetLeft - (viewport.clientWidth - slide.offsetWidth) / 2, behavior: "smooth" });
+    }));
     viewport.addEventListener("scroll", setActive, { passive: true });
     setActive();
     return true;

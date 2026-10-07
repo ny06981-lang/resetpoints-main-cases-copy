@@ -1,7 +1,7 @@
 (function () {
   var isRu = document.documentElement.lang === "ru";
   var path = window.location.pathname;
-  var slug = path.indexOf("dmitry-riman") > -1 ? "dmitry" : path.indexOf("irina-shashkina") > -1 ? "irina" : path.indexOf("elena-lensu") > -1 ? "elena" : path.indexOf("max-rodin") > -1 ? "max" : "";
+  var slug = path.indexOf("dmitry-riman") > -1 ? "dmitry" : path.indexOf("irina-shashkina") > -1 ? "irina" : path.indexOf("elena-lensu") > -1 ? "elena" : path.indexOf("max-rodin") > -1 ? "max" : path.indexOf("ajda-razdevsek") > -1 ? "ajda" : "";
   var root = isRu ? "../../../../" : "../../../";
   var profileRoot = root + (isRu ? "ru/" : "en/");
   function removeProofSections() {
@@ -69,6 +69,30 @@
     },
     max: {
       name: ["Макс Родин", "Max Rodin"], image: "max-rodin.jpg", kicker: ["Фасилитатор / трансформация и осознанность", "Facilitator / transformation and awareness"], lead: ["Фасилитатор групповых процессов и основатель deep mind consulting. Развивает сотрудников через осознанность, работу с состоянием и метанавыки, помогая командам устойчиво действовать в сложной реальности.", "A group process facilitator and founder of deep mind consulting. He develops meta-skills through awareness and state work, helping teams act with greater resilience in complexity."], caption: ["Фасилитатор групповых процессов · основатель deep mind consulting", "Group process facilitator · founder of deep mind consulting"], meta: [["Теория U", "Theory U"], ["Групповой процесс", "Group process"], ["deep mind consulting", "deep mind consulting"]], needTitle: ["Когда команде нужен новый способ работать", "When teams need a new way to work"], needIntro: ["Когда перегрузка, неопределённость или изменения начинают влиять на доверие, энергию и качество решений.", "When overload, uncertainty, or change starts affecting trust, energy, and the quality of decisions."], needs: [["Команда проходит через сложный период или трансформацию", "The team is moving through a difficult period or transformation"], ["Лидерам важно научиться работать со своим состоянием", "Leaders need to learn how to work with their own state"], ["Нужно вернуть внимание, доверие и живой контакт", "The team needs to restore attention, trust, and live contact"], ["Компания ищет практичный wellbeing-формат, а не ещё одну лекцию", "The company needs a practical wellbeing format, not another lecture"]], formatsTitle: ["Форматы работы", "Working formats"], formats: [["Less Stress", "Less Stress", "Практики работы со стрессом и выгоранием в фасилитируемом групповом формате.", "Practical work with stress and burnout in a facilitated group format."], ["Осознанное лидерство", "Conscious leadership", "Работа с вниманием, состоянием и качеством решений руководителей.", "Work with attention, state, and the quality of leaders’ decisions."], ["Групповой процесс", "Group process", "Безопасное пространство для честного разговора, исследования и общего движения.", "A safe space for honest conversation, exploration, and shared movement."], ["Командный выезд", "Team retreat", "Фасилитационный слой для ретрита, оффсайта или программы развития команды.", "A facilitation layer for a retreat, offsite, or team development program."]], clientsTitle: ["Клиенты", "Clients"], clientIntro: ["Компании и команды, участвовавшие в образовательных, wellbeing- и фасилитационных программах deep mind.", "Companies and teams that took part in deep mind education, wellbeing, and facilitation programs."], clients: [["Avito", "AVITO", "facilitator-assets/logos/avito.svg"], ["Яндекс", "YANDEX", "facilitator-assets/logos/yandex.svg"], ["МТС", "MTS", "facilitator-assets/logos/mts.svg"], ["Ростелеком", "ROSTELECOM", "facilitator-assets/logos/rostelecom.svg"], ["QIWI", "QIWI", "facilitator-assets/logos/qiwi.svg"], ["KROK", "KROK", "facilitator-assets/logos/krok.svg"], ["PandaDoc", "PANDADOC", "facilitator-assets/logos/pandadoc.svg"], ["СберМаркет", "SBERMARKET", "facilitator-assets/logos/sbermarket.svg"]], resultLabel: ["Подход", "Approach"], resultTitle: ["Метанавыки, которые остаются в работе", "Meta-skills that stay with the team"], result: ["Макс соединяет практики осознанности, работу с состоянием и фасилитацию. Его задача — не просто снять напряжение на отдельной встрече, а помочь людям освоить навыки, которые продолжают работать в повседневной жизни команды.", "Max combines awareness practices, state work, and group process facilitation. The goal is not only to reduce tension in one session, but to help people build skills that continue working in everyday team life."], socials: [["LinkedIn", "https://www.linkedin.com/in/max-rodin-14115a79"], ["Telegram канал", "https://t.me/mindfulleadersrussia"], ["deep mind", "https://deepmindworld.vercel.app/"]]
+    },
+    ajda: {
+      name: ["Ajda Razdevšek", "Ajda Razdevšek"],
+      image: "ajda-razdevsek.jpg",
+      kicker: ["Фасилитатор / командная динамика и Equia", "Facilitator / team dynamics and Equia"],
+      lead: ["Консультант по командной динамике и основательница Equia. Помогает командам выстроить основу высокой эффективности: ясные роли, открытая коммуникация и общее направление.", "Team dynamics consultant and founder of Equia. She helps teams build the foundations for high performance: clear responsibilities, open communication, and a shared direction."],
+      caption: ["Team dynamics consultant · founder of Equia", "Team dynamics consultant · founder of Equia"],
+      summary: ["Командная динамика, ясные роли и рабочие договорённости", "Team dynamics, clear roles, and practical agreements"],
+      proofsTitle: ["", ""],
+      proofs: [],
+      meta: [["Equia", "Equia"], ["Business psychology", "Business psychology"], ["English / Slovenian", "English / Slovenian"]],
+      needTitle: ["Когда команде нужна настройка взаимодействия", "When a team needs better ways of working"],
+      needIntro: ["Когда команда растёт, роли пересекаются, важные разговоры откладываются, а люди много работают, но не всегда в одном направлении.", "When a team is growing, responsibilities overlap, important conversations are avoided, and people are working hard but not always toward the same priorities."],
+      needs: [["Непонятно, кто владеет решениями и зонами ответственности", "Ownership of decisions and responsibilities is unclear"], ["Повторяются одни и те же недопонимания", "The same misunderstandings keep coming back"], ["Команда избегает обратной связи и важных разговоров", "Important feedback and conversations are being avoided"], ["Нужно согласовать общее направление и правила совместной работы", "The team needs a shared direction and working agreements"]],
+      formatsTitle: ["Форматы работы", "Working formats"],
+      formatsIntro: ["До встречи Ajda собирает контекст через разговор с лидером и короткий опрос команды. На сессии команда разбирает реальные рабочие ситуации и фиксирует, что нужно изменить дальше.", "Before the session, Ajda gets to know the team context through a leader conversation and a short questionnaire. During the session, the team works through real challenges and agrees what needs to happen next."],
+      formats: [["Team alignment session", "Team alignment session", "Сессия для ясности по направлению, ролям, ответственности и способу принятия решений.", "Clarify direction, roles, responsibilities, and how decisions are made."], ["Equia Voice", "Equia Voice", "Практика открытой коммуникации, обратной связи и разговоров, которые обычно откладываются.", "Work on open communication, feedback, and conversations that usually get pushed aside."], ["Equia Vision", "Equia Vision", "Перевести общее видение в понятные приоритеты, цели и рабочие договорённости.", "Translate a shared vision into priorities, goals, and working agreements."], ["Custom team programme", "Custom team programme", "Модуль или серия встреч под конкретную динамику, этап роста и вызовы команды.", "A module or series of sessions tailored to the team’s dynamics, growth stage, and challenges."]],
+      clientsTitle: ["Клиенты и проекты", "Clients and projects"],
+      clientIntro: ["Публично указанные команды и организации из Equia: компании, стартапы, спортивные команды и образовательные проекты.", "Publicly listed teams and organizations from Equia: companies, startups, sports teams, and education projects."],
+      clients: [["Equia", "EQUIA", "facilitator-assets/logos/equia.svg"], ["IBM", "IBM", "facilitator-assets/logos/ibm.png"], ["LaPopsi", "LAPOPSI", "facilitator-assets/logos/lapopsi.png"], ["ArtyParty", "ARTYPARTY", "facilitator-assets/logos/artyparty.png"], ["Mimi plesni center", "MIMI", "facilitator-assets/logos/mimi.png"], ["BirdBuddy", "BIRDBUDDY", "facilitator-assets/logos/birdbuddy.png"]],
+      resultLabel: ["Результат", "Result"],
+      resultTitle: ["Команда уходит с ясностью и договорённостями", "The team leaves with clarity and agreements"],
+      result: ["После работы команда лучше понимает, куда движется, кто за что отвечает и как действовать, когда меняются приоритеты, усложняется коммуникация или нужно принять решение.", "After the work, the team better understands where it is going, who is responsible for what, and how to act when priorities shift, communication gets difficult, or decisions need to be made."],
+      socials: [["LinkedIn", "https://www.linkedin.com/in/ajdarazdev%C5%A1ek"], ["Equia", "https://equia.si/en"]]
     }
   }[slug];
 
@@ -92,6 +116,7 @@
     profile.clientIntro = ["Профессиональный контекст Елены — технологические компании и образовательные проекты.", "Elena's professional context includes technology companies and education projects."];
   }
   if (slug === "irina") profile.proofs = [];
+  if (slug === "ajda") profile.proofs = [];
   function t(value) { return value[isRu ? 0 : 1]; }
   function esc(value) { return String(value).replace(/[&<>"']/g, function (character) { return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[character]; }); }
   function linkList(items) { return items.map(function (item) { return '<a href="' + esc(item[1]) + '" target="_blank" rel="noreferrer">' + esc(item[0]) + '</a>'; }).join(""); }
@@ -116,8 +141,10 @@
   hero.insertAdjacentElement("afterend", heroCta);
 
   var formatsSection = document.querySelector(".dm-band + .dm-section");
-  var proofSection = document.createElement("section");
-  proofSection.className = "dm-section dm-proofs";
-  proofSection.innerHTML = '<h2>' + esc(t(profile.proofsTitle)) + '</h2><div class="dm-proof-grid">' + profile.proofs.map(function (item) { return '<article class="dm-proof"><p class="dm-eyebrow">' + esc(t([item[0], item[1]])) + '</p><p>' + esc(t([item[2], item[3]])) + '</p></article>'; }).join("") + '</div>';
-  formatsSection.insertAdjacentElement("beforebegin", proofSection);
+  if (profile.proofs && profile.proofs.length) {
+    var proofSection = document.createElement("section");
+    proofSection.className = "dm-section dm-proofs";
+    proofSection.innerHTML = '<h2>' + esc(t(profile.proofsTitle)) + '</h2><div class="dm-proof-grid">' + profile.proofs.map(function (item) { return '<article class="dm-proof"><p class="dm-eyebrow">' + esc(t([item[0], item[1]])) + '</p><p>' + esc(t([item[2], item[3]])) + '</p></article>'; }).join("") + '</div>';
+    formatsSection.insertAdjacentElement("beforebegin", proofSection);
+  }
 }());
